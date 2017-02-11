@@ -13,4 +13,12 @@
     tools:context="edu.gatech.cs2340.team1waterreporting.MainDrawerActivity"
     tools:showIn="@layout/app_bar_main_drawer">
 
+    <Button
+        android:text="Logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/logoutButton"
+        android:onClick="onClickLogoutButton" />
 </RelativeLayout>
