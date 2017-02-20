@@ -19,6 +19,7 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     public void onClickRegisterButton(View v) {
-
+        Intent i = new Intent(getApplicationContext(), RegistrationActivity.class);
+        startActivity(i);
     }
 }

@@ -13,6 +13,13 @@
     <string name="error_field_required">This field is required</string>
     <string name="title_activity_main_drawer">Team 1 Water Reporting</string>
 
+    <!-- STrings related to registration -->
+    <string name="prompt_register_name">Name</string>
+    <string name="prompt_register_username">Username</string>
+    <string name="prompt_register_password">Password</string>
+    <string name="action_register">Register</string>
+    <string name="action_cancel">Cancel</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

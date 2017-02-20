@@ -23,8 +23,8 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Name"
-                    android:id="@+id/name" />
+                    android:id="@+id/name"
+                    android:hint="@string/prompt_register_name" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -34,8 +34,8 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Username"
-                    android:id="@+id/username" />
+                    android:id="@+id/username"
+                    android:hint="@string/prompt_register_username" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -49,7 +49,7 @@
                     android:ems="10"
                     android:id="@+id/password"
                     android:layout_weight="1"
-                    android:hint="Password" />
+                    android:hint="@string/prompt_register_password" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -61,10 +61,16 @@
                 android:entries="@array/account_types" />
 
             <Button
-                android:text="Register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/email_register_button" />
+                android:id="@+id/registration_register_button"
+                android:text="@string/action_register" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/registration_cancel_button"
+                android:text="@string/action_cancel" />
 
         </LinearLayout>
     </ScrollView>
