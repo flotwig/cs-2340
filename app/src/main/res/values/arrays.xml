@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Strings related to account types -->
+    <string-array name="account_types">
+        <item>User</item>
+        <item>Worker</item>
+        <item>Manager</item>
+        <item>Admin</item>
+    </string-array>
+</resources>
