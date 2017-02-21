@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Team 1 Water Reporting</string>
     <string name="title_activity_login">Login</string>
+    <string name="title_activity_registration">Registration</string>
 
     <!-- Strings related to login -->
     <string name="prompt_username">Username</string>

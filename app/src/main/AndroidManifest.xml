@@ -24,6 +24,14 @@
                 android:value="edu.gatech.cs2340.team1waterreporting.WelcomeActivity" />
         </activity>
         <activity
+            android:name=".RegistrationActivity"
+            android:label="@string/title_activity_registration"
+            android:parentActivityName=".WelcomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.gatech.cs2340.team1waterreporting.WelcomeActivity" />
+        </activity>
+        <activity
             android:name=".MainDrawerActivity"
             android:label="@string/title_activity_main_drawer"
             android:parentActivityName=".WelcomeActivity"

@@ -10,7 +10,6 @@ import android.os.AsyncTask;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,6 +18,12 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.util.NoSuchElementException;
+
+import edu.gatech.cs2340.team1waterreporting.model.Model;
+import edu.gatech.cs2340.team1waterreporting.model.User;
+import edu.gatech.cs2340.team1waterreporting.model.UserInputException;
 
 /**
  * A login screen that offers login via email/password.
@@ -107,20 +112,18 @@ public class LoginActivity extends AppCompatActivity {
         boolean cancel = false;
         View focusView = null;
 
-        // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
+        try {
+            User.validatePassword(password);
+        } catch (UserInputException e) {
+            mPasswordView.setError(e.getMessage());
             focusView = mPasswordView;
             cancel = true;
         }
 
-        // Check for a valid username address.
-        if (TextUtils.isEmpty(username)) {
-            mUsernameView.setError(getString(R.string.error_field_required));
-            focusView = mUsernameView;
-            cancel = true;
-        } else if (!isUsernameValid(username)) {
-            mUsernameView.setError(getString(R.string.error_invalid_username));
+        try {
+            User.validateId(username);
+        } catch (UserInputException e) {
+            mUsernameView.setError(e.getMessage());
             focusView = mUsernameView;
             cancel = true;
         }
@@ -136,16 +139,6 @@ public class LoginActivity extends AppCompatActivity {
             mAuthTask = new UserLoginTask(username, password);
             mAuthTask.execute((Void) null);
         }
-    }
-
-    private boolean isUsernameValid(String username) {
-        //TODO: Replace this with your own logic
-        return username.length() > 0;
-    }
-
-    private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return password.length() > 2;
     }
 
     /**
@@ -200,18 +193,16 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
-
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mUsername)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
+            try {
+                User u = Model.getInstance().getUserById(mUsername);
+                u.checkPassword(mPassword);
+                Model.getInstance().setCurrentUser(u);
+            } catch (NoSuchElementException e) {
+                return false;
+            } catch (UserInputException e) {
+                return false;
             }
-
-            // TODO: register the new account here.
-            return false;
+            return true;
         }
 
         @Override

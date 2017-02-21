@@ -5,7 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+
+import edu.gatech.cs2340.team1waterreporting.model.Model;
+import edu.gatech.cs2340.team1waterreporting.model.User;
+import edu.gatech.cs2340.team1waterreporting.model.UserInputException;
+import edu.gatech.cs2340.team1waterreporting.model.UserRole;
 
 /**
  * A registration screen that offers the opportunity to register for the app
@@ -13,27 +21,24 @@ import android.widget.Button;
 
 public class RegistrationActivity extends AppCompatActivity {
 
+    private EditText mName;
+    private EditText mPassword;
+    private EditText mId;
+    private Spinner mRole;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO: Finish writing method
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_registration);
 
-        // Relating to the registration button
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-        mEmailSignInButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                attemptRegistration();
-            }
-        });
+        mName = (EditText) findViewById(R.id.register_name);
+        mPassword = (EditText) findViewById(R.id.register_password);
+        mId = (EditText) findViewById(R.id.register_username);
+        mRole = (Spinner) findViewById(R.id.account_type_spinner);
 
-        // Relating to the cancel button
-        Button mCancelRegistration = (Button) findViewById(R.id.registration_cancel_button);
-        mCancelRegistration.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cancelRegistration();
-            }
-        });
+        ArrayAdapter<UserRole> standings = new ArrayAdapter(this,android.R.layout.simple_spinner_item, UserRole.values());
+        standings.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mRole.setAdapter(standings);
     }
 
     /**
@@ -41,15 +46,59 @@ public class RegistrationActivity extends AppCompatActivity {
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual registration attempt is made.
      */
-    private void attemptRegistration() {
-        // TODO: Write method
+    public void onClickRegisterButton(View v) {
+        String name = mName.getText().toString();
+        String id = mId.getText().toString();
+        String password = mPassword.getText().toString();
+        UserRole role = (UserRole) mRole.getSelectedItem();
+        View errorView = null;
+
+        mName.setError(null);
+        mPassword.setError(null);
+        mId.setError(null);
+
+        try {
+            User.validatePassword(password);
+        } catch (UserInputException e) {
+            mPassword.setError(e.getMessage());
+            errorView = mPassword;
+        }
+
+        try {
+            User.validateId(id);
+        } catch (UserInputException e) {
+            mId.setError(e.getMessage());
+            errorView = mId;
+        }
+
+        try {
+            User.validateName(name);
+        } catch (UserInputException e) {
+            mName.setError(e.getMessage());
+            errorView = mName;
+        }
+
+        if (errorView != null) {
+            errorView.requestFocus();
+        } else {
+            // no errors, add the user & log them in
+            User user = new User(name, id, password, role);
+            Model.getInstance().addUser(user);
+            Model.getInstance().setCurrentUser(user);
+            launchMainActivity();
+            finish();
+        }
     }
 
     /**
      * Cancels registration and returns to the welcome screen
      */
-    private void cancelRegistration() {
-        // TODO: Finish writing method
-        setContentView(R.layout.activity_welcome);
+    public void onClickCancelButton(View v) {
+        finish();
+    }
+
+    private void launchMainActivity() {
+        Intent i = new Intent(getApplicationContext(), MainDrawerActivity.class);
+        startActivity(i);
     }
 }
