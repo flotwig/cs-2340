@@ -61,13 +61,6 @@
             android:text="@string/action_register"
             android:onClick="onClickRegisterButton" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/registration_cancel_button"
-            android:text="@string/action_cancel"
-            android:onClick="onClickCancelButton" />
-
     </LinearLayout>
 
 </LinearLayout>

@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import java.util.NoSuchElementException;
+
 import edu.gatech.cs2340.team1waterreporting.model.Model;
 import edu.gatech.cs2340.team1waterreporting.model.User;
 import edu.gatech.cs2340.team1waterreporting.model.UserInputException;
@@ -81,20 +83,19 @@ public class RegistrationActivity extends AppCompatActivity {
         if (errorView != null) {
             errorView.requestFocus();
         } else {
-            // no errors, add the user & log them in
-            User user = new User(name, id, password, role);
-            Model.getInstance().addUser(user);
-            Model.getInstance().setCurrentUser(user);
-            launchMainActivity();
-            finish();
+            // no errors, add the user & log them in if the username doesn't already exist
+            try {
+                Model.getInstance().getUserById(id);
+                mId.setError("This username is already in use.");
+                mId.requestFocus();
+            } catch (NoSuchElementException e) {
+                User user = new User(name, id, password, role);
+                Model.getInstance().addUser(user);
+                Model.getInstance().setCurrentUser(user);
+                launchMainActivity();
+                finish();
+            }
         }
-    }
-
-    /**
-     * Cancels registration and returns to the welcome screen
-     */
-    public void onClickCancelButton(View v) {
-        finish();
     }
 
     private void launchMainActivity() {
