@@ -42,7 +42,6 @@ public class EditProfileFragment extends Fragment {
      * @param user User
      * @return A new instance of fragment EditProfileFragment.
      */
-    // TODO: Rename and change types and number of parameters
     public static EditProfileFragment newInstance(User user) {
         EditProfileFragment fragment = new EditProfileFragment();
         Bundle args = new Bundle();
