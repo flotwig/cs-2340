@@ -1,10 +1,12 @@
 package edu.gatech.cs2340.team1waterreporting.model;
 
+import java.io.Serializable;
+
 /**
  * Model for a user object.
  */
 
-public class User {
+public class User implements Serializable {
     private String name;
     private String id;
     private String password;

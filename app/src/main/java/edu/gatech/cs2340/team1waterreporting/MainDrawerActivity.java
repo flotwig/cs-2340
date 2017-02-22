@@ -1,8 +1,12 @@
 package edu.gatech.cs2340.team1waterreporting;
 
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,6 +16,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import edu.gatech.cs2340.team1waterreporting.model.Model;
 
 public class MainDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -42,6 +49,17 @@ public class MainDrawerActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    /**
+     * Method to populate the user's name and username into the text fields.
+     */
+    private void populateUserDetails() {
+        TextView mName = (TextView) findViewById(R.id.name_view);
+        TextView mId = (TextView) findViewById(R.id.username_view);
+
+        mName.setText(Model.getInstance().getCurrentUser().getName());
+        mId.setText(Model.getInstance().getCurrentUser().getId());
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -54,6 +72,8 @@ public class MainDrawerActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        populateUserDetails();
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_drawer, menu);
         return true;
@@ -80,22 +100,17 @@ public class MainDrawerActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        Snackbar.make(getCurrentFocus(), "Not implemented", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_logout) {
+            onClickLogoutButton(null);
+        } else if (id == R.id.nav_profile) {
+            fragmentTransaction.replace(R.id.fragment_holder, EditProfileFragment.newInstance(null));
         }
+
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -103,6 +118,7 @@ public class MainDrawerActivity extends AppCompatActivity
     }
 
     public void onClickLogoutButton(View v) {
-        super.onBackPressed();
+        Model.getInstance().setCurrentUser(null);
+        finish();
     }
 }
