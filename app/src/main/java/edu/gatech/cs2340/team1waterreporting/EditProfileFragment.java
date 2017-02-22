@@ -97,6 +97,10 @@ public class EditProfileFragment extends Fragment {
         return v;
     }
 
+    /**
+     * onClick handler that will save any edited fields.
+     * @param v Save button
+     */
     public void onClickSaveButton(View v) {
         // check each field for changes and provide some feedback if it was updated
         EditText errorControl = null;

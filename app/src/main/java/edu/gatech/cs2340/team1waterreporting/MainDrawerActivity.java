@@ -1,7 +1,6 @@
 package edu.gatech.cs2340.team1waterreporting;
 
 
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -20,6 +19,10 @@ import android.widget.TextView;
 
 import edu.gatech.cs2340.team1waterreporting.model.Model;
 
+/**
+ * The main activity of the application, contains other parts via fragments (see
+ * onNavigationItemSelected function) and is made visible when the user logs in.
+ */
 public class MainDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -117,6 +120,10 @@ public class MainDrawerActivity extends AppCompatActivity
         return true;
     }
 
+    /**
+     * onClick handler for logout. Sets current user to null and exits this activity.
+     * @param v Logout button
+     */
     public void onClickLogoutButton(View v) {
         Model.getInstance().setCurrentUser(null);
         finish();

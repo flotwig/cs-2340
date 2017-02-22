@@ -4,9 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -47,6 +45,7 @@ public class RegistrationActivity extends AppCompatActivity {
      * Attempts to register the account specified by the login form.
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual registration attempt is made.
+     * @param v Register button
      */
     public void onClickRegisterButton(View v) {
         String name = mName.getText().toString();
@@ -86,7 +85,7 @@ public class RegistrationActivity extends AppCompatActivity {
             // no errors, add the user & log them in if the username doesn't already exist
             try {
                 Model.getInstance().getUserById(id);
-                mId.setError("This username is already in use.");
+                mId.setError(getString(R.string.error_username_in_use));
                 mId.requestFocus();
             } catch (NoSuchElementException e) {
                 User user = new User(name, id, password, role);

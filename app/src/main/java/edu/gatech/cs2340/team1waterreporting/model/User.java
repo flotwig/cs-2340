@@ -5,13 +5,19 @@ import java.io.Serializable;
 /**
  * Model for a user object.
  */
-
 public class User implements Serializable {
     private String name;
     private String id;
     private String password;
     private UserRole userRole;
 
+    /**
+     * Constructor for a User object
+     * @param name Real name
+     * @param id Username
+     * @param password Password (plaintext)
+     * @param userRole Role in the system
+     */
     public User(String name, String id, String password, UserRole userRole) {
         this.name = name;
         this.id = id;
@@ -71,6 +77,11 @@ public class User implements Serializable {
         this.id = id;
     }
 
+    /**
+     * Validates a password and checks if it is correct on the current user.
+     * @param password The password to test.
+     * @throws UserInputException if the password is invalid or incorrect.
+     */
     public void checkPassword(String password) throws UserInputException {
         validatePassword(password);
         if (!password.equals(this.password)) {
