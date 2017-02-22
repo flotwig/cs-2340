@@ -10,6 +10,12 @@
         android:orientation="vertical"
         android:id="@+id/email_registration_form">
 
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/title_spinner"
+            android:layout_weight="1" />
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -17,8 +23,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/register_name"
-                android:hint="@string/prompt_register_name" />
+                android:id="@+id/edit_profile_name"
+                android:hint="@string/prompt_edit_profile_name" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -28,8 +34,8 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/register_username"
-                android:hint="@string/prompt_register_username" />
+                android:id="@+id/edit_profile_username"
+                android:hint="@string/prompt_edit_profile_username" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -41,9 +47,9 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:ems="10"
-                android:id="@+id/register_password"
+                android:id="@+id/edit_profile_password"
                 android:layout_weight="1"
-                android:hint="@string/prompt_register_password" />
+                android:hint="@string/prompt_edit_profile_password" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -52,6 +58,28 @@
             android:layout_height="wrap_content"
             android:id="@+id/account_type_spinner"
             android:layout_weight="1" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/edit_profile_email_adress">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_edit_profile_email_address" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_edit_profile_home_address"
+                android:id="@+id/edit_profile_home_address" />
+        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:layout_width="match_parent"

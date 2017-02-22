@@ -77,9 +77,9 @@ public class EditProfileFragment extends Fragment {
             }
         });
 
-        mName = (EditText) v.findViewById(R.id.register_name);
-        mPassword = (EditText) v.findViewById(R.id.register_password);
-        mId = (EditText) v.findViewById(R.id.register_username);
+        mName = (EditText) v.findViewById(R.id.edit_profile_name);
+        mPassword = (EditText) v.findViewById(R.id.edit_profile_password);
+        mId = (EditText) v.findViewById(R.id.edit_profile_username);
         mRole = (Spinner) v.findViewById(R.id.account_type_spinner);
 
         ArrayAdapter<UserRole> standings = new ArrayAdapter(super.getContext(),android.R.layout.simple_spinner_item, UserRole.values());
