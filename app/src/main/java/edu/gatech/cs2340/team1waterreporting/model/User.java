@@ -9,6 +9,9 @@ public class User implements Serializable {
     private String name;
     private String id;
     private String password;
+    private String emailAddress;
+    private String homeAddress;
+    private String title;
     private UserRole userRole;
 
     /**
@@ -92,6 +95,43 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    /**
+     * Validates an Email Address, throws an exception on error.
+     * @param emailAddress Email Address to validate.
+     * @throws UserInputException Has a user-friendly error message.
+     */
+    public static void validateEmailAddress(String emailAddress) throws UserInputException {
+        if (emailAddress.length() == 0) {
+            throw new UserInputException("Email Address cannot be empty.");
+        }
+        if (!emailAddress.matches("[A-z0-9\\-_\\.]+@")) {
+            throw new UserInputException("ID must consist of alphanumeric characters, -, _, @, and . only.");
+        }
+    }
+
+    public String getEmailAddress() {return emailAddress;}
+
+    public void setEmailAddress(String emailAddress) {this.emailAddress = emailAddress;}
+
+    /**
+     * Validates an Home Address, throws an exception on error.
+     * @param homeAddress Home Address to validate.
+     * @throws UserInputException Has a user-friendly error message.
+     */
+    public static void validateHomeAddress(String homeAddress) throws UserInputException {
+        if (homeAddress.length() == 0) {
+            throw new UserInputException("Home Address cannot be empty.");
+        }
+    }
+
+    public String getHomeAddress() {return homeAddress;}
+
+    public void setHomeAddress(String homeAddress) {this.homeAddress = homeAddress;}
+
+    public String getTitle () {return title;}
+
+    public void setTitle(String title) {this.title = title;}
 
     public UserRole getUserRole() {
         return userRole;
