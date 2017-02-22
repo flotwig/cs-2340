@@ -25,7 +25,10 @@ public class EditProfileFragment extends Fragment {
     private EditText mName;
     private EditText mPassword;
     private EditText mId;
+    private EditText mEmailAddress;
+    private EditText mHomeAddress;
     private Spinner mRole;
+    private Spinner mTitle;
 
     private User mUser;
 
@@ -80,7 +83,10 @@ public class EditProfileFragment extends Fragment {
         mName = (EditText) v.findViewById(R.id.edit_profile_name);
         mPassword = (EditText) v.findViewById(R.id.edit_profile_password);
         mId = (EditText) v.findViewById(R.id.edit_profile_username);
+        mEmailAddress = (EditText) v.findViewById(R.id.edit_profile_email_adress);
+        mHomeAddress = (EditText) v.findViewById(R.id.edit_profile_home_address);
         mRole = (Spinner) v.findViewById(R.id.account_type_spinner);
+        mTitle = (Spinner) v.findViewById(R.id.title_spinner);
 
         ArrayAdapter<UserRole> standings = new ArrayAdapter(super.getContext(),android.R.layout.simple_spinner_item, UserRole.values());
         standings.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -90,7 +96,10 @@ public class EditProfileFragment extends Fragment {
             // we are editing an existing user, fill in their data except password
             mName.setText(mUser.getName());
             mId.setText(mUser.getId());
+            mEmailAddress.setText(mUser.getEmailAddress());
+            mHomeAddress.setText(mUser.getHomeAddress());
             mRole.setSelection(standings.getPosition(mUser.getUserRole()));
+            //mTitle.setSelection(standings.getPosition(mUser.getTitle()));
         }
 
         return v;
@@ -133,8 +142,32 @@ public class EditProfileFragment extends Fragment {
             }
         }
 
+        if (!mEmailAddress.getText().toString().equals(mUser.getEmailAddress())) {
+            try {
+                User.validateEmailAddress(mEmailAddress.getText().toString());
+                mUser.setEmailAddress(mEmailAddress.getText().toString());
+            } catch (UserInputException e) {
+                mEmailAddress.setError(e.getMessage());
+                errorControl = mEmailAddress;
+            }
+        }
+
+        if (!mHomeAddress.getText().toString().equals(mUser.getHomeAddress())) {
+            try {
+                User.validateHomeAddress(mHomeAddress.getText().toString());
+                mUser.setHomeAddress(mHomeAddress.getText().toString());
+            } catch (UserInputException e) {
+                mHomeAddress.setError(e.getMessage());
+                errorControl = mHomeAddress;
+            }
+        }
+
         if (!mRole.getSelectedItem().equals(mUser.getUserRole())) {
             mUser.setUserRole((UserRole) mRole.getSelectedItem());
+        }
+
+        if (!mTitle.getSelectedItem().equals(mUser.getTitle())) {
+            mUser.setTitle((String) mTitle.getSelectedItem());
         }
 
         if (errorControl != null) {
