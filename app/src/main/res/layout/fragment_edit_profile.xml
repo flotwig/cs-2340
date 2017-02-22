@@ -14,7 +14,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/title_spinner"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:spinnerMode="dropdown" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -67,7 +68,9 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/prompt_edit_profile_email_address" />
+                android:hint="@string/prompt_edit_profile_email_address"
+                android:id="@+id/edit_profile_email_address"
+                android:inputType="textEmailAddress" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout

@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.team1waterreporting;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -31,6 +32,8 @@ public class EditProfileFragment extends Fragment {
     private Spinner mTitle;
 
     private User mUser;
+
+    private int indexOfTitle;
 
     /**
      * Creates an empty EditProfileFragment.
@@ -88,9 +91,28 @@ public class EditProfileFragment extends Fragment {
         mRole = (Spinner) v.findViewById(R.id.account_type_spinner);
         mTitle = (Spinner) v.findViewById(R.id.title_spinner);
 
+        /*
+         * Set up the adapter to display the User Roles in the spinner
+         */
         ArrayAdapter<UserRole> standings = new ArrayAdapter(super.getContext(),android.R.layout.simple_spinner_item, UserRole.values());
         standings.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mRole.setAdapter(standings);
+
+        /*
+         * Set up the adapter to display the Titles in the spinner
+         * This code is a bit hack-y, as I (Matthew) did not know the best way to populate a spinner
+         */
+        Resources res = getResources();
+        String[] titles = res.getStringArray(R.array.titles);
+        ArrayAdapter<UserRole> standings2 = new ArrayAdapter(super.getContext(),android.R.layout.simple_spinner_item, titles);
+        standings2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mTitle.setAdapter(standings2);
+        for (int i = 0; i < titles.length; i++) {
+            if (titles[i].equals(mUser.getTitle())) {
+                indexOfTitle = i;
+                break;
+            }
+        }
 
         if (mUser != null) {
             // we are editing an existing user, fill in their data except password
@@ -99,7 +121,7 @@ public class EditProfileFragment extends Fragment {
             mEmailAddress.setText(mUser.getEmailAddress());
             mHomeAddress.setText(mUser.getHomeAddress());
             mRole.setSelection(standings.getPosition(mUser.getUserRole()));
-            //mTitle.setSelection(standings.getPosition(mUser.getTitle()));
+            mTitle.setSelection(indexOfTitle);
         }
 
         return v;
