@@ -86,7 +86,7 @@ public class EditProfileFragment extends Fragment {
         mName = (EditText) v.findViewById(R.id.edit_profile_name);
         mPassword = (EditText) v.findViewById(R.id.edit_profile_password);
         mId = (EditText) v.findViewById(R.id.edit_profile_username);
-        mEmailAddress = (EditText) v.findViewById(R.id.edit_profile_email_adress);
+        mEmailAddress = (EditText) v.findViewById(R.id.edit_profile_email_address);
         mHomeAddress = (EditText) v.findViewById(R.id.edit_profile_home_address);
         mRole = (Spinner) v.findViewById(R.id.account_type_spinner);
         mTitle = (Spinner) v.findViewById(R.id.title_spinner);

@@ -105,8 +105,8 @@ public class User implements Serializable {
         if (emailAddress.length() == 0) {
             throw new UserInputException("Email Address cannot be empty.");
         }
-        if (!emailAddress.matches("[A-z0-9\\-_\\.]+@")) {
-            throw new UserInputException("ID must consist of alphanumeric characters, -, _, @, and . only.");
+        if (!emailAddress.matches("[A-z0-9\\-_\\.\\+]+@")) {
+            throw new UserInputException("Email Address must consist of alphanumeric characters, +, -, _, @, and . only.");
         }
     }
 
