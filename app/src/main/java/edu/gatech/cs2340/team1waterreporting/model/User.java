@@ -106,7 +106,7 @@ public class User implements Serializable {
             throw new UserInputException("Email Address cannot be empty.");
         }
         if (!emailAddress.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$")) {
-            throw new UserInputException("Invalid email address.");
+            throw new UserInputException("Invalid email address. Email must be of form example@domain.com");
         }
     }
 
