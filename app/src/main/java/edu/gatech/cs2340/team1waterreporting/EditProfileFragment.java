@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.team1waterreporting;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -194,6 +195,16 @@ public class EditProfileFragment extends Fragment {
 
         if (errorControl != null) {
             errorControl.requestFocus();
+        } else {
+            launchMainActivity();
         }
+    }
+
+    /**
+     * Transition to the main application screen
+     */
+    private void launchMainActivity() {
+        Intent i = new Intent(getActivity(), MainDrawerActivity.class);
+        startActivity(i);
     }
 }
