@@ -19,7 +19,7 @@ public class Model {
     private List<WaterSourceReport> waterSourceReports;
 
     public int getNewWaterSourceReportId() {
-        return waterSourceReports.get(waterSourceReports.size() - 1).number + 1;
+        return waterSourceReports.get(waterSourceReports.size() - 1).getNumber() + 1;
     }
 
     public void addWaterSourceReport(WaterSourceReport waterSourceReport) {
@@ -43,8 +43,9 @@ public class Model {
     }
 
     private void populateDummyData() {
-        users.add(new User("Test User", "user", "pass", UserRole.ADMIN));
-        waterSourceReports.add(new WaterSourceReport());
+        User u = new User("Test User", "user", "pass", UserRole.ADMIN);
+        users.add(u);
+        waterSourceReports.add(new WaterSourceReport(u, new Location(33.774358, 84.396463), WaterType.BOTTLED, WaterCondition.WASTE));
     }
 
     /**
