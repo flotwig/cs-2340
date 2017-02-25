@@ -12,6 +12,20 @@ public class Model {
     private static final Model instance = new Model();
     private List<User> users;
 
+    public List<WaterSourceReport> getWaterSourceReports() {
+        return waterSourceReports;
+    }
+
+    private List<WaterSourceReport> waterSourceReports;
+
+    public int getNewWaterSourceReportId() {
+        return waterSourceReports.get(waterSourceReports.size() - 1).number + 1;
+    }
+
+    public void addWaterSourceReport(WaterSourceReport waterSourceReport) {
+        waterSourceReports.add(waterSourceReport);
+    }
+
     public User getCurrentUser() {
         return currentUser;
     }
@@ -24,11 +38,13 @@ public class Model {
 
     private Model() {
         users = new ArrayList<>();
+        waterSourceReports = new ArrayList<>();
         populateDummyData();
     }
 
     private void populateDummyData() {
         users.add(new User("Test User", "user", "pass", UserRole.ADMIN));
+        waterSourceReports.add(new WaterSourceReport());
     }
 
     /**

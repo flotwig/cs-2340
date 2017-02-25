@@ -134,6 +134,7 @@ public class EditProfileFragment extends Fragment {
      */
     public void onClickSaveButton(View v) {
         // check each field for changes and provide some feedback if it was updated
+        // TODO: provide some feedback if it was updated
         EditText errorControl = null;
         if (!mPassword.getText().toString().isEmpty()) {
             try {
