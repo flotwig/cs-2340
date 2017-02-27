@@ -25,6 +25,10 @@ public class Model {
         return waterSourceReports.get(waterSourceReports.size() - 1).getNumber() + 1;
     }
 
+    /**
+     * Adds a new water source report to the list.
+     * @param waterSourceReport Water source report to add.
+     */
     public void addWaterSourceReport(WaterSourceReport waterSourceReport) {
         waterSourceReports.add(waterSourceReport);
     }

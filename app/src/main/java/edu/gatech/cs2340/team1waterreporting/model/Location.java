@@ -8,6 +8,11 @@ public class Location {
     private double longitude;
     private double latitude;
 
+    /**
+     * Constructor for a location.
+     * @param longitude Longitude
+     * @param latitude Latitude
+     */
     public Location(double longitude, double latitude) {
         this.longitude = longitude;
         this.latitude = latitude;
@@ -29,6 +34,11 @@ public class Location {
         this.latitude = latitude;
     }
 
+    /**
+     * Validates a latitude string input.
+     * @param latitude Input to check
+     * @throws UserInputException if the latitude is invalid
+     */
     public static void validateLatitude(String latitude) throws UserInputException {
         if (latitude.length() == 0) {
             throw new UserInputException("Latitude cannot be empty.");
@@ -43,6 +53,11 @@ public class Location {
         }
     }
 
+    /**
+     * Validates a longitude string input.
+     * @param longitude Input to check
+     * @throws UserInputException if the longitude is invalid
+     */
     public static void validateLongitude(String longitude) throws UserInputException {
         if (longitude.length() == 0) {
             throw new UserInputException("Longitude cannot be empty.");

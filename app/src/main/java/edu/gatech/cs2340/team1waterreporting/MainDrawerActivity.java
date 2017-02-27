@@ -125,6 +125,10 @@ public class MainDrawerActivity extends AppCompatActivity
         finish();
     }
 
+    /**
+     * Switches the fragment currently displayed to the supplied fragment.
+     * @param fragment The fragment to swap the main container to.
+     */
     public void switchFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

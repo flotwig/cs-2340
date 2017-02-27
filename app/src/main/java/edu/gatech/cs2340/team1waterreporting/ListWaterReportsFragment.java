@@ -55,7 +55,7 @@ public class ListWaterReportsFragment extends Fragment {
     }
 
     /**
-     * New instance of form to edit a user.
+     * New instance of list of water reports.
      *
      * @return A new instance of fragment ListWaterReportsFragment.
      */
@@ -86,10 +86,9 @@ public class ListWaterReportsFragment extends Fragment {
     }
 
     /**
-     * onClick handler that will save the new water report and
-     * transition to the list view or alert the user to any input
-     * validation errors.
-     * @param v Save button
+     * onClick handler that will transition to the form to create a new
+     * water report.
+     * @param v New button
      */
     public void onClickNewButton(View v) {
         ((MainDrawerActivity) getActivity()).switchFragment(NewWaterReportFragment.newInstance());
