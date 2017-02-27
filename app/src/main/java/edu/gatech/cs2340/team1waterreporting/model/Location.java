@@ -28,4 +28,32 @@ public class Location {
     public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
+
+    public static void validateLatitude(String latitude) throws UserInputException {
+        if (latitude.length() == 0) {
+            throw new UserInputException("Latitude cannot be empty.");
+        }
+        try {
+            Float lat = Float.parseFloat(latitude);
+            if (lat < -90 || lat > 90) {
+                throw new UserInputException("Latitude must be between -90 and 90 degrees.");
+            }
+        } catch (NumberFormatException e) {
+            throw new UserInputException("Latitude must be a number.");
+        }
+    }
+
+    public static void validateLongitude(String longitude) throws UserInputException {
+        if (longitude.length() == 0) {
+            throw new UserInputException("Longitude cannot be empty.");
+        }
+        try {
+            Float lon = Float.parseFloat(longitude);
+            if (lon < -180 || lon > 180) {
+                throw new UserInputException("Longitude must be between -180 and 180 degrees.");
+            }
+        } catch (NumberFormatException e) {
+            throw new UserInputException("Longitude must be a number.");
+        }
+    }
 }

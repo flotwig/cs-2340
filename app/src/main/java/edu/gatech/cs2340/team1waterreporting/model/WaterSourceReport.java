@@ -3,7 +3,7 @@ package edu.gatech.cs2340.team1waterreporting.model;
 import java.util.Date;
 
 /**
- * Created by zbloo on 2/24/2017.
+ * Model to contain a report on a water source.
  */
 
 public class WaterSourceReport {
@@ -16,11 +16,11 @@ public class WaterSourceReport {
 
     private WaterSourceReport() {
         this.date = new Date();
-        this.number = Model.getInstance().getNewWaterSourceReportId();
     }
 
-    public WaterSourceReport(User reporter, Location location, WaterType waterType, WaterCondition waterCondition) {
+    public WaterSourceReport(int number, User reporter, Location location, WaterType waterType, WaterCondition waterCondition) {
         this();
+        this.number = number;
         this.reporter = reporter;
         this.location = location;
         this.waterType = waterType;

@@ -3,6 +3,8 @@
     <string name="title_activity_login">Login</string>
     <string name="title_activity_registration">Registration</string>
     <string name="title_fragment_edit_profile">Edit Profile</string>
+    <string name="title_fragment_new_water_report">New Water Report</string>
+    <string name="title_fragment_list_water_reports">Water Reports</string>
 
     <!-- Strings related to login -->
     <string name="prompt_username">Username</string>

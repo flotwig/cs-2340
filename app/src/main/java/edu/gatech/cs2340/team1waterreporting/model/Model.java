@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
  */
 
 public class Model {
-    private static final Model instance = new Model();
+    private static Model instance = new Model();
     private List<User> users;
 
     public List<WaterSourceReport> getWaterSourceReports() {
@@ -19,6 +19,9 @@ public class Model {
     private List<WaterSourceReport> waterSourceReports;
 
     public int getNewWaterSourceReportId() {
+        if (waterSourceReports.size() == 0) {
+            return 1;
+        }
         return waterSourceReports.get(waterSourceReports.size() - 1).getNumber() + 1;
     }
 
@@ -45,7 +48,7 @@ public class Model {
     private void populateDummyData() {
         User u = new User("Test User", "user", "pass", UserRole.ADMIN);
         users.add(u);
-        waterSourceReports.add(new WaterSourceReport(u, new Location(33.774358, 84.396463), WaterType.BOTTLED, WaterCondition.WASTE));
+        waterSourceReports.add(new WaterSourceReport(1, u, new Location(33.774358, 84.396463), WaterType.BOTTLED, WaterCondition.WASTE));
     }
 
     /**
@@ -71,7 +74,9 @@ public class Model {
         users.add(user);
     }
 
-    public static Model getInstance() {
+    public synchronized static Model getInstance() {
+        if (instance == null)
+            instance = new Model();
         return instance;
     }
 }

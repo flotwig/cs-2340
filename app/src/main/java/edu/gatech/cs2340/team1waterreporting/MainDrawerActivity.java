@@ -1,6 +1,7 @@
 package edu.gatech.cs2340.team1waterreporting;
 
 
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -33,15 +34,6 @@ public class MainDrawerActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Not implemented", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -50,6 +42,8 @@ public class MainDrawerActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        switchFragment(ListWaterReportsFragment.newInstance());
     }
 
     /**
@@ -108,8 +102,10 @@ public class MainDrawerActivity extends AppCompatActivity
 
         if (id == R.id.nav_logout) {
             onClickLogoutButton(null);
+        } else if (id == R.id.nav_water_reports) {
+            switchFragment(ListWaterReportsFragment.newInstance());
         } else if (id == R.id.nav_profile) {
-            fragmentTransaction.replace(R.id.fragment_holder, EditProfileFragment.newInstance(null));
+            switchFragment(EditProfileFragment.newInstance(null));
         }
 
         fragmentTransaction.addToBackStack(null);
@@ -127,5 +123,13 @@ public class MainDrawerActivity extends AppCompatActivity
     public void onClickLogoutButton(View v) {
         Model.getInstance().setCurrentUser(null);
         finish();
+    }
+
+    public void switchFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_holder, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }

@@ -7,6 +7,10 @@
             android:icon="@android:drawable/ic_menu_edit"
             android:title="@string/navigation_item_edit_profile" />
         <item
+            android:id="@+id/nav_water_reports"
+            android:icon="@android:drawable/ic_menu_info_details"
+            android:title="Water Reports" />
+        <item
             android:id="@+id/nav_logout"
             android:icon="@android:drawable/ic_menu_close_clear_cancel"
             android:title="@string/navigation_item_logout" />
