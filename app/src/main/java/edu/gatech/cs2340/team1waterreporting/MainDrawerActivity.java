@@ -106,6 +106,8 @@ public class MainDrawerActivity extends AppCompatActivity
             switchFragment(ListWaterReportsFragment.newInstance());
         } else if (id == R.id.nav_profile) {
             switchFragment(EditProfileFragment.newInstance(null));
+        } else if (id == R.id.nav_water_report_map) {
+            switchFragment(MapFragment.newInstance());
         }
 
         fragmentTransaction.addToBackStack(null);

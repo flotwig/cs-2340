@@ -9,7 +9,11 @@
         <item
             android:id="@+id/nav_water_reports"
             android:icon="@android:drawable/ic_menu_info_details"
-            android:title="Water Reports" />
+            android:title="Report List" />
+        <item
+            android:id="@+id/nav_water_report_map"
+            android:icon="@android:drawable/ic_menu_mapmode"
+            android:title="Water Map" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@android:drawable/ic_menu_close_clear_cancel"
