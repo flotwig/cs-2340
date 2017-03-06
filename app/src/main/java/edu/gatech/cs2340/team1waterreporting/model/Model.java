@@ -11,6 +11,7 @@ import java.util.NoSuchElementException;
 public class Model {
     private static Model instance = new Model();
     private List<User> users;
+    private WaterSourceReportManager _reportManager;
 
     public List<WaterSourceReport> getWaterSourceReports() {
         return waterSourceReports;
@@ -31,6 +32,12 @@ public class Model {
      */
     public void addWaterSourceReport(WaterSourceReport waterSourceReport) {
         waterSourceReports.add(waterSourceReport);
+    }
+
+    public List<WaterSourceReport> getReports() { return _reportManager.getReportList(); }
+
+    public WaterSourceReport getLastReport() {
+        return _reportManager.getLastReport();
     }
 
     public User getCurrentUser() {
