@@ -112,7 +112,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             googleMap.addMarker(new MarkerOptions()
                     .position(location)
                     .title(waterSourceReport.getWaterCondition().toString())
-                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+                    .visible(true)
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)))
+                    .showInfoWindow();
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(location));
         }
     }
