@@ -17,11 +17,12 @@ public interface DAO {
      * @param password password to check
      * @return if the user could be logged in
      */
-    boolean attemptLogin(String username, String password);
+    boolean attemptLogin(String username, String password) throws UserInputException, NoSuchElementException;
     int getNewWaterSourceReportId();
     int getNewWaterPurityReportId();
     List<WaterSourceReport> getWaterSourceReports();
     List<WaterPurityReport> getWaterPurityReports();
+    List<LogEvent> getLogEvents();
     /**
      * Adds a new water source report to the list.
      * @param waterSourceReport Water source report to add.
@@ -44,4 +45,10 @@ public interface DAO {
      * @param user The user object to append to the user list.
      */
     void addUser(User user);
+
+    /**
+     * Store a log event.
+     * @param logEvent Log event to store
+     */
+    void addLogEvent(LogEvent logEvent);
 }

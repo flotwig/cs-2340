@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.team1waterreporting.model;
 
+import android.util.Log;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +25,7 @@ public class FirebaseDAO extends InMemoryDAO implements ValueEventListener {
         root.child("users").addValueEventListener(this);
         root.child("waterSourceReports").addValueEventListener(this);
         root.child("waterPurityReports").addValueEventListener(this);
+        root.child("logEvents").addValueEventListener(this);
         database.goOnline();
     }
 
@@ -42,6 +45,11 @@ public class FirebaseDAO extends InMemoryDAO implements ValueEventListener {
     }
 
     @Override
+    public void addLogEvent(LogEvent logEvent) {
+        root.child("logEvents").push().setValue(logEvent);
+    }
+
+    @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
         switch (dataSnapshot.getRef().getKey()) {
             case "waterPurityReports":
@@ -50,6 +58,8 @@ public class FirebaseDAO extends InMemoryDAO implements ValueEventListener {
                 waterSourceReports = iterableToList(WaterSourceReport.class, dataSnapshot.getChildren());
             case "users":
                 users = iterableToList(User.class, dataSnapshot.getChildren());
+            case "logEvents":
+                logEvents = iterableToList(LogEvent.class, dataSnapshot.getChildren());
         }
     }
 

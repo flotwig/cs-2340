@@ -11,6 +11,7 @@ import java.util.NoSuchElementException;
 public class InMemoryDAO implements DAO {
     protected List<WaterPurityReport> waterPurityReports;
     protected List<WaterSourceReport> waterSourceReports;
+    protected List<LogEvent> logEvents;
     protected List<User> users;
     protected User currentUser;
 
@@ -25,16 +26,10 @@ public class InMemoryDAO implements DAO {
     }
 
     @Override
-    public boolean attemptLogin(String username, String password) {
-        try {
-            User u = Model.getInstance().getUserById(username);
-            u.checkPassword(password);
-            Model.getInstance().setCurrentUser(u);
-        } catch (NoSuchElementException e) {
-            return false;
-        } catch (UserInputException e) {
-            return false;
-        }
+    public boolean attemptLogin(String username, String password) throws UserInputException, NoSuchElementException{
+        User u = Model.getInstance().getUserById(username);
+        u.checkPassword(password);
+        Model.getInstance().setCurrentUser(u);
         return true;
     }
 
@@ -42,6 +37,7 @@ public class InMemoryDAO implements DAO {
         users = new ArrayList<>();
         waterSourceReports = new ArrayList<>();
         waterPurityReports = new ArrayList<>();
+        logEvents = new ArrayList<>();
         populateDummyData();
     }
 
@@ -80,6 +76,11 @@ public class InMemoryDAO implements DAO {
     }
 
     @Override
+    public List<LogEvent> getLogEvents() {
+        return logEvents;
+    }
+
+    @Override
     public void addWaterSourceReport(WaterSourceReport waterSourceReport) {
         waterSourceReports.add(waterSourceReport);
     }
@@ -102,5 +103,10 @@ public class InMemoryDAO implements DAO {
     @Override
     public void addUser(User user) {
         users.add(user);
+    }
+
+    @Override
+    public void addLogEvent(LogEvent logEvent) {
+        logEvents.add(logEvent);
     }
 }

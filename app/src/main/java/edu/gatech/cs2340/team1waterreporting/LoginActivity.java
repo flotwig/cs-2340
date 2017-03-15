@@ -19,6 +19,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.HashMap;
+import java.util.NoSuchElementException;
+
+import edu.gatech.cs2340.team1waterreporting.model.LogEventType;
 import edu.gatech.cs2340.team1waterreporting.model.Model;
 import edu.gatech.cs2340.team1waterreporting.model.User;
 import edu.gatech.cs2340.team1waterreporting.model.UserInputException;
@@ -183,7 +187,16 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            return Model.getInstance().attemptLogin(mUsername, mPassword);
+            try {
+                Model.getInstance().attemptLogin(mUsername, mPassword);
+                Logger.logLoginAttempt("Success", mUsername);
+                return true;
+            } catch (NoSuchElementException e) {
+                Logger.logLoginAttempt("Unknown ID", mUsername);
+            } catch (UserInputException e) {
+                Logger.logLoginAttempt("Bad Password", mUsername);
+            }
+            return false;
         }
 
         @Override
