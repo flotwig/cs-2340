@@ -16,7 +16,12 @@ public class Model {
         return waterSourceReports;
     }
 
+    private List<WaterPurityReport> waterPurityReports;
     private List<WaterSourceReport> waterSourceReports;
+
+    public List<WaterPurityReport> getWaterPurityReports() {
+        return waterPurityReports;
+    }
 
     public int getNewWaterSourceReportId() {
         if (waterSourceReports.size() == 0) {
@@ -25,12 +30,27 @@ public class Model {
         return waterSourceReports.get(waterSourceReports.size() - 1).getNumber() + 1;
     }
 
+    public int getNewWaterPurityReportId() {
+        if (waterPurityReports.size() == 0) {
+            return 1;
+        }
+        return waterPurityReports.get(waterPurityReports.size() - 1).getNumber() + 1;
+    }
+
     /**
      * Adds a new water source report to the list.
      * @param waterSourceReport Water source report to add.
      */
     public void addWaterSourceReport(WaterSourceReport waterSourceReport) {
         waterSourceReports.add(waterSourceReport);
+    }
+
+    /**
+     * Adds a new water purity report to the list.
+     * @param waterPurityReport Water purity report to add.
+     */
+    public void addWaterPurityReport(WaterPurityReport waterPurityReport) {
+        waterPurityReports.add(waterPurityReport);
     }
 
     public User getCurrentUser() {
@@ -46,13 +66,14 @@ public class Model {
     private Model() {
         users = new ArrayList<>();
         waterSourceReports = new ArrayList<>();
+        waterPurityReports = new ArrayList<>();
         populateDummyData();
     }
 
     private void populateDummyData() {
-        User u = new User("Test User", "user", "pass", UserRole.ADMIN);
-        users.add(u);
-        waterSourceReports.add(new WaterSourceReport(1, u, new Location(33.774358, 84.396463), WaterType.BOTTLED, WaterCondition.WASTE));
+        users.add(new User("Test User", "user", "pass", UserRole.ADMIN));
+        waterSourceReports.add(new WaterSourceReport(1, users.get(0), new Location(33.774358, 84.396463), WaterType.BOTTLED, WaterCondition.WASTE));
+        waterPurityReports.add(new WaterPurityReport(1, users.get(0), new Location(34.774358, 85.396463), WaterCondition.TREATABLE_MUDDY, 1234.1234, 5678.5678));
     }
 
     /**

@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import edu.gatech.cs2340.team1waterreporting.model.Model;
+import edu.gatech.cs2340.team1waterreporting.model.UserRole;
 
 /**
  * The main activity of the application, contains other parts via fragments (see
@@ -26,6 +27,10 @@ import edu.gatech.cs2340.team1waterreporting.model.Model;
  */
 public class MainDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    Menu mMenu;
+    static int MENU_NEW_PURITY_REPORT = 1;
+    static int MENU_LIST_PURITY_REPORTS = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +48,20 @@ public class MainDrawerActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        addPrivilegedMenuItems(navigationView.getMenu());
         switchFragment(ListWaterReportsFragment.newInstance());
+    }
+
+    private void addPrivilegedMenuItems(Menu menu) {
+        switch (Model.getInstance().getCurrentUser().getUserRole()) {
+            case ADMIN:
+            case MANAGER:
+                menu.add(0, MENU_LIST_PURITY_REPORTS, Menu.NONE, "List Water Purity Reports").setIcon(R.drawable.ic_menu_share);
+            case WORKER:
+                menu.add(0, MENU_NEW_PURITY_REPORT, Menu.NONE, "New Water Purity Report").setIcon(R.drawable.ic_menu_manage);
+            case USER:
+            default:
+        }
     }
 
     /**
@@ -70,6 +88,7 @@ public class MainDrawerActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         populateUserDetails();
+        addPrivilegedMenuItems(menu);
 
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_drawer, menu);
@@ -108,6 +127,10 @@ public class MainDrawerActivity extends AppCompatActivity
             switchFragment(EditProfileFragment.newInstance(null));
         } else if (id == R.id.nav_water_report_map) {
             switchFragment(MapFragment.newInstance());
+        } else if (id == MENU_NEW_PURITY_REPORT) {
+            switchFragment(NewWaterQualityReportFragment.newInstance());
+        } else if (id == MENU_LIST_PURITY_REPORTS) {
+            switchFragment(ListWaterPurityReportsFragment.newInstance());
         }
 
         fragmentTransaction.addToBackStack(null);

@@ -4,6 +4,7 @@
     <string name="title_activity_registration">Registration</string>
     <string name="title_fragment_edit_profile">Edit Profile</string>
     <string name="title_fragment_new_water_report">New Water Report</string>
+    <string name="title_fragment_new_water_quality_report">New Water Quality Report</string>
     <string name="title_fragment_list_water_reports">Water Reports</string>
     <string name="title_fragment_map">Water Report Map</string>
 
