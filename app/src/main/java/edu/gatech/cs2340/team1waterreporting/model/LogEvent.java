@@ -17,12 +17,23 @@ public class LogEvent {
 
     }
 
+    /**
+     * Constructor for new log event with today's date.
+     * @param user property value
+     * @param type property value
+     */
     public LogEvent(User user, LogEventType type) {
         date = new Date();
         this.user = user;
         this.type = type;
     }
 
+    /**
+     * Constructor for new log event with today's date.
+     * @param user property value
+     * @param type property value
+     * @param metadata property value
+     */
     public LogEvent(User user, LogEventType type, HashMap<String, String> metadata) {
         this(user, type);
         this.metadata = metadata;

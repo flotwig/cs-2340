@@ -1,6 +1,7 @@
 package edu.gatech.cs2340.team1waterreporting;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,8 +26,9 @@ public class WaterQualityReportArrayAdapter extends ArrayAdapter<WaterPurityRepo
         super(context, 0, waterPurityReports);
     }
 
+    @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         WaterPurityReport waterPurityReport = getItem(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_water_source_report, parent, false);

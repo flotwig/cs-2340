@@ -16,6 +16,8 @@ public interface DAO {
      * @param username username to check
      * @param password password to check
      * @return if the user could be logged in
+     * @throws UserInputException on bad password
+     * @throws NoSuchElementException on user not found
      */
     boolean attemptLogin(String username, String password) throws UserInputException, NoSuchElementException;
     int getNewWaterSourceReportId();
