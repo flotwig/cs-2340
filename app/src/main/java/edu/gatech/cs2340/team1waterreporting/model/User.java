@@ -14,6 +14,10 @@ public class User implements Serializable {
     private String title;
     private UserRole userRole;
 
+    private User() {
+
+    }
+
     /**
      * Constructor for a User object
      * @param name Real name
@@ -90,6 +94,15 @@ public class User implements Serializable {
         if (!password.equals(this.password)) {
             throw new UserInputException("Incorrect password.");
         }
+    }
+
+    /**
+     * Returns current password. Needed for Firebase ORM to work properly.
+     * DO NOT REMOVE
+     * @return user's password
+     */
+    public String getPassword() {
+        return password;
     }
 
     public void setPassword(String password) {

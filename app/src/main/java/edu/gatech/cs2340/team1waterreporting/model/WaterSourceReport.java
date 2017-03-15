@@ -12,7 +12,6 @@ public class WaterSourceReport {
     private User reporter;
     private Location location;
     private WaterType waterType;
-
     private WaterCondition waterCondition;
 
     private WaterSourceReport() {

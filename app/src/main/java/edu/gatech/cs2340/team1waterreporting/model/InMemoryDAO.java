@@ -9,10 +9,10 @@ import java.util.NoSuchElementException;
  */
 
 public class InMemoryDAO implements DAO {
-    private List<WaterPurityReport> waterPurityReports;
-    private List<WaterSourceReport> waterSourceReports;
-    private List<User> users;
-    private User currentUser;
+    protected List<WaterPurityReport> waterPurityReports;
+    protected List<WaterSourceReport> waterSourceReports;
+    protected List<User> users;
+    protected User currentUser;
 
     @Override
     public User getCurrentUser() {

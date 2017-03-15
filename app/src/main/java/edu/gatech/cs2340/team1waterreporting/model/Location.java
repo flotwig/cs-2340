@@ -10,6 +10,10 @@ public class Location {
     private double longitude;
     private double latitude;
 
+    private Location() {
+
+    }
+
     /**
      * Constructor for a location.
      * @param latitude Latitude
