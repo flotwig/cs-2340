@@ -19,8 +19,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.NoSuchElementException;
-
 import edu.gatech.cs2340.team1waterreporting.model.Model;
 import edu.gatech.cs2340.team1waterreporting.model.User;
 import edu.gatech.cs2340.team1waterreporting.model.UserInputException;
@@ -185,16 +183,7 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            try {
-                User u = Model.getInstance().getUserById(mUsername);
-                u.checkPassword(mPassword);
-                Model.getInstance().setCurrentUser(u);
-            } catch (NoSuchElementException e) {
-                return false;
-            } catch (UserInputException e) {
-                return false;
-            }
-            return true;
+            return Model.getInstance().attemptLogin(mUsername, mPassword);
         }
 
         @Override

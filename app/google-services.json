@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "393781504313",
+    "firebase_url": "https://team1waterreporting.firebaseio.com",
+    "project_id": "team1waterreporting",
+    "storage_bucket": "team1waterreporting.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393781504313:android:113b42921fdbb0fd",
+        "android_client_info": {
+          "package_name": "edu.gatech.cs2340.team1waterreporting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "393781504313-hn0pugng15vf12r1noqkkiuc5hrtm5ag.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.gatech.cs2340.team1waterreporting",
+            "certificate_hash": "caac3727dd2b64d9382d3971622a052425f63746"
+          }
+        },
+        {
+          "client_id": "393781504313-grm8k4lg1usglf8slulcd02i4ia6tdd9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVfoHV6yZ6jT9ZdHOVohn8jboVLbW8jrk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "393781504313-grm8k4lg1usglf8slulcd02i4ia6tdd9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
