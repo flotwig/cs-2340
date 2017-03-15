@@ -84,7 +84,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         for (WaterSourceReport waterSourceReport : waterSourceReports) {
             Marker marker = googleMap.addMarker(new MarkerOptions()
                     .position(waterSourceReport.getLocation().toLatLng())
-                    .title(waterSourceReport.toString()));
+                    .title(String.format("%d: %s, %s",
+                            waterSourceReport.getNumber(),
+                            waterSourceReport.getWaterCondition(),
+                            waterSourceReport.getWaterType()))
+                    .snippet(String.format("By %s at %s.",
+                            waterSourceReport.getReporter().getName(),
+                            waterSourceReport.getDate().toString())));
             marker.setTag(waterSourceReport);
             marker.setVisible(true);
             marker.showInfoWindow();

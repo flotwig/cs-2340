@@ -62,7 +62,7 @@ public class WaterSourceReport {
 
     @Override
     public String toString() {
-        return String.format("#%d: %s %s at %f, %f. Reported by %s at %s.",
+        return String.format("#%d: %s, %s at %f, %f. \nReported by %s at %s.",
                 number,
                 waterCondition.toString(),
                 waterType.toString(),
