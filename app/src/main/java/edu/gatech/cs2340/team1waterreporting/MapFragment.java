@@ -13,6 +13,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
@@ -81,15 +82,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         // populate mMap with markers
         List<WaterSourceReport> waterSourceReports = Model.getInstance().getWaterSourceReports();
         for (WaterSourceReport waterSourceReport : waterSourceReports) {
-            LatLng location = new LatLng(waterSourceReport.getLocation().getLatitude(),
-                    waterSourceReport.getLocation().getLongitude());
-            googleMap.addMarker(new MarkerOptions()
-                    .position(location)
-                    .title(waterSourceReport.getWaterCondition().toString())
-                    .visible(true)
-                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)))
-                    .showInfoWindow();
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(location));
+            Marker marker = googleMap.addMarker(new MarkerOptions()
+                    .position(waterSourceReport.getLocation().toLatLng())
+                    .title(waterSourceReport.toString()));
+            marker.setTag(waterSourceReport);
+            marker.setVisible(true);
+            marker.showInfoWindow();
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(waterSourceReport.getLocation().toLatLng()));
         }
     }
 }

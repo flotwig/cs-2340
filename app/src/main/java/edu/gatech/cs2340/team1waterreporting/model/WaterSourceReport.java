@@ -19,6 +19,14 @@ public class WaterSourceReport {
         this.date = new Date();
     }
 
+    /**
+     * Constructs a new WaterSourceReport with current date
+     * @param number property value
+     * @param reporter property value
+     * @param location property value
+     * @param waterType property value
+     * @param waterCondition property value
+     */
     public WaterSourceReport(int number, User reporter, Location location, WaterType waterType, WaterCondition waterCondition) {
         this();
         this.number = number;
@@ -50,5 +58,17 @@ public class WaterSourceReport {
 
     public WaterCondition getWaterCondition() {
         return waterCondition;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("#%d: %s %s at %f, %f. Reported by %s at %s.",
+                number,
+                waterCondition.toString(),
+                waterType.toString(),
+                location.getLatitude(),
+                location.getLongitude(),
+                reporter.getName(),
+                date.toString());
     }
 }

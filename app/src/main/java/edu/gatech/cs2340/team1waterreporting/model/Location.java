@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.team1waterreporting.model;
 
+import com.google.android.gms.maps.model.LatLng;
+
 /**
  * Model for a location consisting of latitude and longitude
  */
@@ -10,10 +12,10 @@ public class Location {
 
     /**
      * Constructor for a location.
-     * @param longitude Longitude
      * @param latitude Latitude
+     * @param longitude Longitude
      */
-    public Location(double longitude, double latitude) {
+    public Location(double latitude, double longitude) {
         this.longitude = longitude;
         this.latitude = latitude;
     }
@@ -70,5 +72,13 @@ public class Location {
         } catch (NumberFormatException e) {
             throw new UserInputException("Longitude must be a number.");
         }
+    }
+
+    /**
+     * Generate LatLng for google maps from this location
+     * @return a LatLng corresponding to this Location
+     */
+    public LatLng toLatLng() {
+        return new LatLng(latitude, longitude);
     }
 }

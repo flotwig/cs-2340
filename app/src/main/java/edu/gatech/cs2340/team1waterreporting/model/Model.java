@@ -72,8 +72,8 @@ public class Model {
 
     private void populateDummyData() {
         users.add(new User("Test User", "user", "pass", UserRole.ADMIN));
-        waterSourceReports.add(new WaterSourceReport(1, users.get(0), new Location(33.774358, 84.396463), WaterType.BOTTLED, WaterCondition.WASTE));
-        waterPurityReports.add(new WaterPurityReport(1, users.get(0), new Location(34.774358, 85.396463), WaterCondition.TREATABLE_MUDDY, 1234.1234, 5678.5678));
+        waterSourceReports.add(new WaterSourceReport(1, users.get(0), new Location(33.774358, -84.396463), WaterType.BOTTLED, WaterCondition.WASTE));
+        waterPurityReports.add(new WaterPurityReport(1, users.get(0), new Location(34.774358, -85.396463), WaterCondition.TREATABLE_MUDDY, 1234.1234, 5678.5678));
     }
 
     /**
