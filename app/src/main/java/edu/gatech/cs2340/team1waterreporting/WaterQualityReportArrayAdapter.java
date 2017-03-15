@@ -10,13 +10,17 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import edu.gatech.cs2340.team1waterreporting.model.WaterPurityReport;
-import edu.gatech.cs2340.team1waterreporting.model.WaterSourceReport;
 
 /**
- * Adapter to translate an array of water source reports into a listview.
+ * Adapter to translate an array of water quality reports into a listview.
  */
 
 public class WaterQualityReportArrayAdapter extends ArrayAdapter<WaterPurityReport> {
+    /**
+     * Constructs a new WaterQualityReportArrayAdapter
+     * @param context context to operate in
+     * @param waterPurityReports WaterPurityReport objects to show
+     */
     public WaterQualityReportArrayAdapter(Context context, ArrayList<WaterPurityReport> waterPurityReports) {
         super(context, 0, waterPurityReports);
     }

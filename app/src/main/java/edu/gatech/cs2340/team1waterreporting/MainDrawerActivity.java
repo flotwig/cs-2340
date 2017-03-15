@@ -4,8 +4,6 @@ package edu.gatech.cs2340.team1waterreporting;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -19,7 +17,6 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import edu.gatech.cs2340.team1waterreporting.model.Model;
-import edu.gatech.cs2340.team1waterreporting.model.UserRole;
 
 /**
  * The main activity of the application, contains other parts via fragments (see
@@ -28,7 +25,6 @@ import edu.gatech.cs2340.team1waterreporting.model.UserRole;
 public class MainDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    Menu mMenu;
     static int MENU_NEW_PURITY_REPORT = 1;
     static int MENU_LIST_PURITY_REPORTS = 2;
 

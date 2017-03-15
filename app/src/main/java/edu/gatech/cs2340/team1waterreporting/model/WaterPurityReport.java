@@ -19,6 +19,15 @@ public class WaterPurityReport {
         this.date = new Date();
     }
 
+    /**
+     * Constructs a new WaterPurityReport with the current date and time and these parameters.
+     * @param number property value
+     * @param reporter property value
+     * @param location property value
+     * @param waterCondition property value
+     * @param virusPpm property value
+     * @param contaminentPpm property value
+     */
     public WaterPurityReport(int number, User reporter, Location location, WaterCondition waterCondition, double virusPpm, double contaminentPpm) {
         this();
         this.number = number;
@@ -29,8 +38,13 @@ public class WaterPurityReport {
         this.contaminentPpm = contaminentPpm;
     }
 
+    /**
+     * Validates a ppm to be less than or equal to a million and greater than 0.
+     * @param ppm PPM to verify
+     * @throws UserInputException if the conditions are not met
+     */
     public static void validatePpm(String ppm) throws UserInputException {
-        if (Float.parseFloat(ppm) > 1E6) {
+        if (Float.parseFloat(ppm) >= 1E6) {
             throw new UserInputException("Cannot have more than a million ppm");
         } else if (Float.parseFloat(ppm) < 0) {
             throw new UserInputException("Cannot have negative ppm");

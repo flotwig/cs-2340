@@ -16,6 +16,11 @@ import edu.gatech.cs2340.team1waterreporting.model.WaterSourceReport;
  */
 
 public class WaterSourceReportArrayAdapter extends ArrayAdapter<WaterSourceReport> {
+    /**
+     * Constructs a new WaterSourceReportArrayAdapter
+     * @param context context to operate in
+     * @param waterSourceReports WaterSourceReport objects to show
+     */
     public WaterSourceReportArrayAdapter(Context context, ArrayList<WaterSourceReport> waterSourceReports) {
         super(context, 0, waterSourceReports);
     }
