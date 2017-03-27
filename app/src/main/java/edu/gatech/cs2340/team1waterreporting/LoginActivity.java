@@ -97,6 +97,7 @@ public class LoginActivity extends AppCompatActivity {
         mUsernameView.setError(null);
         mPasswordView.setError(null);
 
+
         // Store values at the time of the login attempt.
         String username = mUsernameView.getText().toString();
         String password = mPasswordView.getText().toString();

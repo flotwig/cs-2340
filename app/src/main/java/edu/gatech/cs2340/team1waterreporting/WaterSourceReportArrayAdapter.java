@@ -16,7 +16,7 @@ import edu.gatech.cs2340.team1waterreporting.model.WaterSourceReport;
  * Adapter to translate an array of water source reports into a listview.
  */
 
-public class WaterSourceReportArrayAdapter extends ArrayAdapter<WaterSourceReport> {
+class WaterSourceReportArrayAdapter extends ArrayAdapter<WaterSourceReport> {
     /**
      * Constructs a new WaterSourceReportArrayAdapter
      * @param context context to operate in
@@ -32,6 +32,9 @@ public class WaterSourceReportArrayAdapter extends ArrayAdapter<WaterSourceRepor
         WaterSourceReport waterSourceReport = getItem(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_water_source_report, parent, false);
+        }
+        if (waterSourceReport == null) {
+            return convertView;
         }
         TextView mNumber = (TextView) convertView.findViewById(R.id.number_text);
         TextView mRow = (TextView) convertView.findViewById(R.id.row_text);

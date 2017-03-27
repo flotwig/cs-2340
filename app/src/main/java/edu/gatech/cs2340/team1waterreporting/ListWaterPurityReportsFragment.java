@@ -18,8 +18,8 @@ import edu.gatech.cs2340.team1waterreporting.model.Model;
  */
 public class ListWaterPurityReportsFragment extends Fragment {
 
-    ListView mList;
-    FloatingActionButton mNewButton;
+    private ListView mList;
+    private FloatingActionButton mNewButton;
 
     /**
      * Creates an empty ListWaterPurityReportsFragment.
@@ -34,8 +34,7 @@ public class ListWaterPurityReportsFragment extends Fragment {
      * @return A new instance of fragment ListWaterPurityReportsFragment.
      */
     public static ListWaterPurityReportsFragment newInstance() {
-        ListWaterPurityReportsFragment fragment = new ListWaterPurityReportsFragment();
-        return fragment;
+        return new ListWaterPurityReportsFragment();
     }
 
     @Override
@@ -64,7 +63,7 @@ public class ListWaterPurityReportsFragment extends Fragment {
      * water quality report.
      * @param v New button
      */
-    public void onClickNewButton(View v) {
+    private void onClickNewButton(View v) {
         ((MainDrawerActivity) getActivity()).switchFragment(NewWaterQualityReportFragment.newInstance());
     }
 }

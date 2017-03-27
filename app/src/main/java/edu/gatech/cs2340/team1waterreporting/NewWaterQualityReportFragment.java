@@ -40,8 +40,7 @@ public class NewWaterQualityReportFragment extends Fragment {
      * @return A new instance of fragment NewWaterQualityReportFragment.
      */
     public static NewWaterQualityReportFragment newInstance() {
-        NewWaterQualityReportFragment fragment = new NewWaterQualityReportFragment();
-        return fragment;
+        return new NewWaterQualityReportFragment();
     }
 
     @Override
@@ -79,7 +78,7 @@ public class NewWaterQualityReportFragment extends Fragment {
      * validation errors.
      * @param v Save button
      */
-    public void onClickSaveButton(View v) {
+    private void onClickSaveButton(View v) {
         EditText errorControl = null;
 
         try {

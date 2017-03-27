@@ -16,7 +16,7 @@ import edu.gatech.cs2340.team1waterreporting.model.WaterPurityReport;
  * Adapter to translate an array of water quality reports into a listview.
  */
 
-public class WaterQualityReportArrayAdapter extends ArrayAdapter<WaterPurityReport> {
+class WaterQualityReportArrayAdapter extends ArrayAdapter<WaterPurityReport> {
     /**
      * Constructs a new WaterQualityReportArrayAdapter
      * @param context context to operate in
@@ -32,6 +32,9 @@ public class WaterQualityReportArrayAdapter extends ArrayAdapter<WaterPurityRepo
         WaterPurityReport waterPurityReport = getItem(position);
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_water_source_report, parent, false);
+        }
+        if (waterPurityReport == null) {
+            return convertView;
         }
         TextView mNumber = (TextView) convertView.findViewById(R.id.number_text);
         TextView mRow = (TextView) convertView.findViewById(R.id.row_text);

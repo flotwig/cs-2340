@@ -10,6 +10,7 @@ public class Location {
     private double longitude;
     private double latitude;
 
+    // empty constructor required for Firebase
     private Location() {
 
     }

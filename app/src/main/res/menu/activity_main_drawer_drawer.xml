@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/nav_menu">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
         <item
@@ -10,11 +9,11 @@
         <item
             android:id="@+id/nav_water_reports"
             android:icon="@android:drawable/ic_menu_info_details"
-            android:title="Report List" />
+            android:title="@string/navigation_item_report_list" />
         <item
             android:id="@+id/nav_water_report_map"
             android:icon="@android:drawable/ic_menu_mapmode"
-            android:title="Water Map" />
+            android:title="@string/navigation_item_water_map" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@android:drawable/ic_menu_close_clear_cancel"

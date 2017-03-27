@@ -1,7 +1,7 @@
 package edu.gatech.cs2340.team1waterreporting.model;
 
 /**
- * Created by zbloo on 2/24/2017.
+ * Enum to store current condition of water.
  */
 
 public enum WaterCondition {
@@ -10,7 +10,7 @@ public enum WaterCondition {
     TREATABLE_MUDDY("Treatable-Muddy"),
     POTABLE("Potable");
 
-    String prettyName;
+    final String prettyName;
 
     WaterCondition(String prettyName) {
         this.prettyName = prettyName;

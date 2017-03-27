@@ -26,8 +26,8 @@ import edu.gatech.cs2340.team1waterreporting.model.Model;
 public class MainDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    static int MENU_NEW_PURITY_REPORT = 1;
-    static int MENU_LIST_PURITY_REPORTS = 2;
+    private static final int MENU_NEW_PURITY_REPORT = 1;
+    private static final int MENU_LIST_PURITY_REPORTS = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class MainDrawerActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -142,7 +142,7 @@ public class MainDrawerActivity extends AppCompatActivity
      * onClick handler for logout. Sets current user to null and exits this activity.
      * @param v Logout button
      */
-    public void onClickLogoutButton(View v) {
+    private void onClickLogoutButton(View v) {
         Model.getInstance().setCurrentUser(null);
         finish();
     }

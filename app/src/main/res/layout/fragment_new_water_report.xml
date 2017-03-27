@@ -5,8 +5,7 @@
 
     <com.google.android.gms.maps.MapView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/new_water_report_map" />
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -20,7 +19,7 @@
             android:ems="10"
             android:id="@+id/new_water_report_latitude"
             android:layout_weight="1"
-            android:hint="Latitude" />
+            android:hint="@string/latitude" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -29,7 +28,7 @@
             android:ems="10"
             android:id="@+id/new_water_report_longitude"
             android:layout_weight="1"
-            android:hint="Longitude" />
+            android:hint="@string/longitude" />
     </LinearLayout>
 
     <Spinner
@@ -43,7 +42,7 @@
         android:id="@+id/new_water_report_water_condition_spinner" />
 
     <Button
-        android:text="Save"
+        android:text="@string/save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/new_water_report_save_button" />

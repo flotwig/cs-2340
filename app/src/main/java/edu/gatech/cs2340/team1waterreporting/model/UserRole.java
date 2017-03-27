@@ -10,7 +10,7 @@ public enum UserRole {
     MANAGER("Manager"),
     ADMIN("Administrator");
 
-    private String prettyName;
+    private final String prettyName;
 
     UserRole(String prettyName) {
         this.prettyName = prettyName;

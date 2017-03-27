@@ -15,6 +15,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
+import java.util.Locale;
 
 import edu.gatech.cs2340.team1waterreporting.model.Model;
 import edu.gatech.cs2340.team1waterreporting.model.WaterSourceReport;
@@ -25,8 +26,8 @@ import edu.gatech.cs2340.team1waterreporting.model.WaterSourceReport;
  */
 public class MapFragment extends Fragment implements OnMapReadyCallback {
 
-    SupportMapFragment mMap;
-    FloatingActionButton mNewButton;
+    private SupportMapFragment mMap;
+    private FloatingActionButton mNewButton;
 
     /**
      * Creates an empty ListWaterReportsFragment.
@@ -41,8 +42,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
      * @return A new instance of fragment ListWaterReportsFragment.
      */
     public static MapFragment newInstance() {
-        MapFragment fragment = new MapFragment();
-        return fragment;
+        return new MapFragment();
     }
 
     @Override
@@ -71,7 +71,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
      * water report.
      * @param v New button
      */
-    public void onClickNewButton(View v) {
+    private void onClickNewButton(View v) {
         ((MainDrawerActivity) getActivity()).switchFragment(NewWaterReportFragment.newInstance());
     }
 
@@ -82,11 +82,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         for (WaterSourceReport waterSourceReport : waterSourceReports) {
             Marker marker = googleMap.addMarker(new MarkerOptions()
                     .position(waterSourceReport.getLocation().toLatLng())
-                    .title(String.format("%d: %s, %s",
+                    .title(String.format(Locale.ENGLISH, "%d: %s, %s",
                             waterSourceReport.getNumber(),
                             waterSourceReport.getWaterCondition(),
                             waterSourceReport.getWaterType()))
-                    .snippet(String.format("By %s at %s.",
+                    .snippet(String.format(Locale.ENGLISH, "By %s at %s.",
                             waterSourceReport.getReporter().getName(),
                             waterSourceReport.getDate().toString())));
             marker.setTag(waterSourceReport);

@@ -7,7 +7,7 @@ import java.util.Date;
  */
 
 public class WaterSourceReport {
-    private Date date;
+    private final Date date;
     private int number;
     private User reporter;
     private Location location;

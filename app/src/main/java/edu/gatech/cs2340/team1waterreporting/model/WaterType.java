@@ -12,7 +12,7 @@ public enum WaterType {
     SPRING("Spring"),
     OTHER("Other");
 
-    String prettyName;
+    final String prettyName;
 
     WaterType(String prettyName) {
         this.prettyName = prettyName;

@@ -11,7 +11,7 @@ public enum LogEventType {
     UNBLOCK_ACCOUNT("Unblock Account"),
     REPORT_DELETE("Report Deleted");
 
-    private String prettyName;
+    private final String prettyName;
 
     LogEventType(String prettyName) {
         this.prettyName = prettyName;
