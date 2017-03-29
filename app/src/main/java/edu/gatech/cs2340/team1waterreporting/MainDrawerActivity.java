@@ -28,6 +28,7 @@ public class MainDrawerActivity extends AppCompatActivity
 
     private static final int MENU_NEW_PURITY_REPORT = 1;
     private static final int MENU_LIST_PURITY_REPORTS = 2;
+    private static final int MENU_GRAPH_PURITY_REPORTS = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,7 @@ public class MainDrawerActivity extends AppCompatActivity
             case ADMIN:
             case MANAGER:
                 menu.add(0, MENU_LIST_PURITY_REPORTS, Menu.NONE, "List Water Purity Reports").setIcon(R.drawable.ic_menu_share);
+                menu.add(0, MENU_GRAPH_PURITY_REPORTS, Menu.NONE, "Water Quality History Graph").setIcon(R.drawable.ic_menu_graph);
             case WORKER:
                 menu.add(0, MENU_NEW_PURITY_REPORT, Menu.NONE, "New Water Purity Report").setIcon(R.drawable.ic_menu_manage);
             case USER:
@@ -128,6 +130,8 @@ public class MainDrawerActivity extends AppCompatActivity
             switchFragment(NewWaterQualityReportFragment.newInstance());
         } else if (id == MENU_LIST_PURITY_REPORTS) {
             switchFragment(ListWaterPurityReportsFragment.newInstance());
+        } else if (id == MENU_GRAPH_PURITY_REPORTS) {
+            switchFragment(GraphFragment.newInstance());
         }
 
         fragmentTransaction.addToBackStack(null);
