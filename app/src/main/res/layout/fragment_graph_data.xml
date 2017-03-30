@@ -4,8 +4,14 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/graphView"
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:layout_weight="0.51" />
+
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/graph_year"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -13,7 +19,7 @@
         android:text="Year" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/graph_virus_or_contaminent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -21,25 +27,25 @@
         android:text="Contaminents or Virus" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/graph_latitude"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text|textPostalAddress"
-        android:text="Location"
+        android:text="@string/latitude"
         tools:text="@string/latitude" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/graph_longitude"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text|textPostalAddress"
-        android:text="Name"
+        android:text="@string/longitude"
         tools:text="@string/longitude" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/graph_enter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Enter" />
