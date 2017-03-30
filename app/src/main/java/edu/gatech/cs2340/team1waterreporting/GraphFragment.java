@@ -33,18 +33,15 @@ public class GraphFragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_graph_data, container, false);
+        /*View view = inflater.inflate(R.layout.fragment_graph_data, container, false);
         Button mSaveButton = (Button) view.findViewById(R.id.new_water_report_save_button);
         mLatitude = (EditText) view.findViewById(R.id.new_water_report_latitude);
         mLongitude = (EditText) view.findViewById(R.id.new_water_report_longitude);
         mVirusPpm = (EditText) view.findViewById(R.id.new_water_report_virusppm);
-        while(!mSaveButton.isPressed()) {
-
-        }
-
-        view = inflater.inflate(R.layout.fragment_graph, container, false);
-
-        populateGraphView(view);
+        if(mSaveButton.isPressed()) {*/
+            View view = inflater.inflate(R.layout.fragment_graph, container, false);
+            populateGraphView(view);
+        //}
 
         return view;
     }
