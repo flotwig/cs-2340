@@ -7,35 +7,33 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
-import com.google.android.gms.maps.model.LatLng;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
-import edu.gatech.cs2340.team1waterreporting.model.InMemoryDAO;
+import java.util.LinkedList;
+import java.util.List;
+
 import edu.gatech.cs2340.team1waterreporting.model.Location;
 import edu.gatech.cs2340.team1waterreporting.model.Model;
 import edu.gatech.cs2340.team1waterreporting.model.UserInputException;
 import edu.gatech.cs2340.team1waterreporting.model.WaterPurityReport;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.text.ParseException;
-import java.util.ArrayList;
+import edu.gatech.cs2340.team1waterreporting.model.WaterSourceReport;
 
 /**
- * Created by Trevor on 3/29/2017.
+ * Fragment to control and display graphs of contaminent PPM over time.
  */
 
 public class GraphFragment extends Fragment {
 
     private EditText mLatitude;
     private EditText mLongitude;
-    private EditText mVirusContaminentPpm;
+    private EditText mSearchRadiusMeters;
     private EditText mYear;
+    private GraphView mGraph;
+
+    private boolean doVirusPpm = false;
 
     public static GraphFragment newInstance() {
         return new GraphFragment();
@@ -44,50 +42,74 @@ public class GraphFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_graph_data, container, false);
-        Button mSaveButton = (Button) view.findViewById(R.id.graph_enter);
+        Button mSaveButton = (Button) view.findViewById(R.id.graph_enter_contaminent);
         mSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onClickSaveButton(v);
+                doVirusPpm = false;
+                onClickViewButton(v);
             }
         });
 
+        mSaveButton = (Button) view.findViewById(R.id.graph_enter_virus);
+        mSaveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doVirusPpm = true;
+                onClickViewButton(v);
+            }
+        });
+
+
         mLatitude = (EditText) view.findViewById(R.id.graph_latitude);
         mLongitude = (EditText) view.findViewById(R.id.graph_longitude);
-        mVirusContaminentPpm = (EditText) view.findViewById(R.id.graph_virus_or_contaminent);
+        mSearchRadiusMeters = (EditText) view.findViewById(R.id.graph_search_radius_meters);
         mYear = (EditText) view.findViewById(R.id.graph_year);
-        GraphView graph = (GraphView) view.findViewById(R.id.graph1);
-        graph.setVisibility(view.INVISIBLE);
-        if(mSaveButton.isPressed()) {
-            populateGraphView(view, graph);
-            graph.setVisibility(view.VISIBLE);
-        }
+        mGraph = (GraphView) view.findViewById(R.id.graphView);
+        mGraph.setVisibility(view.INVISIBLE);
 
         return view;
     }
 
-    private void populateGraphView(View view, GraphView graph) {
-
+    private void populateGraphView(GraphView graph) {
         DataPoint[] reports = new DataPoint[10];
-        int i = 0;
-        for (WaterPurityReport report : Model.getInstance().getWaterPurityReports()) {
-            if (report.getDate().getYear() == Integer.parseInt(mYear.getText().toString())) {
-                DataPoint r = new DataPoint(report.getDate(), report.getVirusPpm());
-                reports[i] = r;
-                i++;
-            }
+        List<WaterPurityReport> targetReports = Model.getInstance().getWaterPurityReportsByLocationYear(
+                new Location(Float.parseFloat(mLatitude.getText().toString()), Float.parseFloat(mLongitude.getText().toString())),
+                Float.parseFloat(mSearchRadiusMeters.getText().toString()),
+                Integer.parseInt(mYear.getText().toString()));
+        targetReports = Model.getInstance().getWaterPurityReports();
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
+        LinkedList<Integer>[] months = new LinkedList[12];
+        for (int i = 0; i < months.length; i++) {
+            months[i] = new LinkedList<>();
         }
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(reports);
+        for (WaterPurityReport waterPurityReport : targetReports) {
+            months[waterPurityReport.getDate().getMonth()].add((int) ((doVirusPpm) ? waterPurityReport.getVirusPpm() : waterPurityReport.getContaminentPpm()));
+        }
+        int cMonth = 1;
+        for (LinkedList<Integer> month : months) {
+            int average = 0;
+            for (int ppm : month) {
+                average += ppm;
+            }
+            if (month.size() > 0) {
+                average /= month.size();
+                series.appendData(new DataPoint(cMonth, average), false, months.length);
+            }
+            cMonth++;
+        }
+        graph.getGridLabelRenderer().setNumHorizontalLabels(12);
+        graph.getGridLabelRenderer().setHorizontalAxisTitle("Month");
+        graph.getGridLabelRenderer().setVerticalAxisTitle("PPM");
+        graph.removeAllSeries();
         graph.addSeries(series);
     }
 
     /**
-     * onClick handler that will save the new water report and
-     * transition to the list view or alert the user to any input
-     * validation errors.
+     * onClick handler that will generate the appropriate graph.
      * @param v Save button
      */
-    private void onClickSaveButton(View v) {
+    private void onClickViewButton(View v) {
         EditText errorControl = null;
 
         try {
@@ -104,18 +126,11 @@ public class GraphFragment extends Fragment {
             errorControl = mLongitude;
         }
 
-        try {
-            WaterPurityReport.validatePpm(mVirusContaminentPpm.getText().toString());
-        } catch (UserInputException e) {
-            mVirusContaminentPpm.setError(e.getMessage());
-            errorControl = mVirusContaminentPpm;
-        }
-
-        try {
-            WaterPurityReport.validatePpm(mVirusContaminentPpm.getText().toString());
-        } catch (UserInputException e) {
-            mVirusContaminentPpm.setError(e.getMessage());
-            errorControl = mVirusContaminentPpm;
+        if (errorControl != null) {
+            errorControl.requestFocus();
+        } else {
+            populateGraphView(mGraph);
+            mGraph.setVisibility(View.VISIBLE);
         }
     }
 }

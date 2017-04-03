@@ -24,6 +24,15 @@ public interface DAO {
     int getNewWaterPurityReportId();
     List<WaterSourceReport> getWaterSourceReports();
     List<WaterPurityReport> getWaterPurityReports();
+
+    /**
+     * Gets a list of water source reports that match the criteria.
+     * @param location Location to search for.
+     * @param radiusMeters Meters around location to search. (square radius)
+     * @param year Target year.
+     * @return A list of matching water source reports.
+     */
+    List<WaterPurityReport> getWaterPurityReportsByLocationYear(Location location, double radiusMeters, int year);
     List<LogEvent> getLogEvents();
     /**
      * Adds a new water source report to the list.

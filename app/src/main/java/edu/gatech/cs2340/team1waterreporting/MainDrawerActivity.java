@@ -28,7 +28,7 @@ public class MainDrawerActivity extends AppCompatActivity
 
     private static final int MENU_NEW_PURITY_REPORT = 1;
     private static final int MENU_LIST_PURITY_REPORTS = 2;
-    private static final int MENU_GRAPH_PURITY_REPORTS = 3;
+    private static final int MENU_GRAPH_PURITY_REPORTS = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

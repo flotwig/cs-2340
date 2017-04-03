@@ -15,6 +15,8 @@ public class InMemoryDAO implements DAO {
     protected List<User> users;
     protected User currentUser;
 
+    private static final double METERS_IN_DEGREE = 111000.0; // rough approximation of meters per latlng
+
     @Override
     public User getCurrentUser() {
         return currentUser;
@@ -73,6 +75,19 @@ public class InMemoryDAO implements DAO {
     @Override
     public List<WaterPurityReport> getWaterPurityReports() {
         return waterPurityReports;
+    }
+
+    @Override
+    public List<WaterPurityReport> getWaterPurityReportsByLocationYear(Location location, double radiusMeters, int year) {
+        List<WaterPurityReport> result = new ArrayList<WaterPurityReport>();
+        for(WaterPurityReport waterPurityReport : waterPurityReports) {
+            if (waterPurityReport.getDate().getYear() == year &&
+                    Math.abs(location.getLatitude() - waterPurityReport.getLocation().getLatitude()) <= radiusMeters / METERS_IN_DEGREE &&
+                    Math.abs(location.getLongitude() - waterPurityReport.getLocation().getLongitude()) <= radiusMeters / METERS_IN_DEGREE) {
+                result.add(waterPurityReport);
+            }
+        }
+        return result;
     }
 
     @Override

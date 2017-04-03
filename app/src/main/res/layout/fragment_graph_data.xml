@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <com.jjoe64.graphview.GraphView
         android:id="@+id/graphView"
         android:layout_width="match_parent"
-        android:layout_height="200dip"
+        android:layout_height="0dp"
         android:layout_weight="0.51" />
 
     <EditText
@@ -16,38 +16,58 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="date"
-        android:text="Year" />
+        android:hint="Year" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+                android:id="@+id/graph_longitude"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/longitude"
+                tools:text="@string/longitude"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/graph_latitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/latitude"
+            tools:text="@string/latitude"
+            android:layout_weight="1" />
+
+    </LinearLayout>
 
     <EditText
-        android:id="@+id/graph_virus_or_contaminent"
+        android:id="@+id/graph_search_radius_meters"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:text="Contaminents or Virus" />
+        android:hint="Search Radius (meters)"/>
 
-    <EditText
-        android:id="@+id/graph_latitude"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text|textPostalAddress"
-        android:text="@string/latitude"
-        tools:text="@string/latitude" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/graph_longitude"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text|textPostalAddress"
-        android:text="@string/longitude"
-        tools:text="@string/longitude" />
+        <Button
+            android:id="@+id/graph_enter_virus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Graph Virus PPM" />
 
-    <Button
-        android:id="@+id/graph_enter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter" />
+        <Button
+            android:id="@+id/graph_enter_contaminent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Graph Contaminent PPM" />
+
+    </LinearLayout>
 
 </LinearLayout>
