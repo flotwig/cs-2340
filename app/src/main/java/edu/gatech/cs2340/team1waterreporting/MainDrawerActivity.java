@@ -23,6 +23,7 @@ import edu.gatech.cs2340.team1waterreporting.model.Model;
  * The main activity of the application, contains other parts via fragments (see
  * onNavigationItemSelected function) and is made visible when the user logs in.
  */
+@SuppressWarnings("ChainedMethodCall")
 public class MainDrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 

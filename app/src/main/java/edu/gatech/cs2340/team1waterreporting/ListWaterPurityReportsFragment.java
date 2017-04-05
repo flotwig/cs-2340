@@ -16,7 +16,7 @@ import edu.gatech.cs2340.team1waterreporting.model.Model;
 /**
  * A fragment which handles the editing of a user object.
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked", "ChainedMethodCall"})
 public class ListWaterPurityReportsFragment extends Fragment {
 
     /**

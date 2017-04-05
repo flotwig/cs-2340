@@ -13,6 +13,7 @@ import static org.junit.Assert.*;
 /**
  * Test cases for the in-memory DAO.
  */
+@SuppressWarnings("ChainedMethodCall")
 public class InMemoryDAOTests {
     private InMemoryDAO dao;
 

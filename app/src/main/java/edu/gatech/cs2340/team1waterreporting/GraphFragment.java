@@ -25,7 +25,7 @@ import edu.gatech.cs2340.team1waterreporting.model.WaterPurityReport;
  * Fragment to control and display graphs of contaminant PPM over time.
  */
 
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked", "ChainedMethodCall"})
 public class GraphFragment extends Fragment {
 
     private EditText mLatitude;

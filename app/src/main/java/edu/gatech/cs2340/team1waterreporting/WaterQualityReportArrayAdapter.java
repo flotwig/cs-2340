@@ -16,6 +16,7 @@ import edu.gatech.cs2340.team1waterreporting.model.WaterPurityReport;
  * Adapter to translate an array of water quality reports into a ListView.
  */
 
+@SuppressWarnings("ChainedMethodCall")
 class WaterQualityReportArrayAdapter extends ArrayAdapter<WaterPurityReport> {
     /**
      * Constructs a new WaterQualityReportArrayAdapter

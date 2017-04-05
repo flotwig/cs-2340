@@ -21,7 +21,7 @@ import edu.gatech.cs2340.team1waterreporting.model.UserRole;
 /**
  * A fragment which handles the editing of a user object.
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked", "ChainedMethodCall"})
 public class EditProfileFragment extends Fragment {
     private static final String ARG_USER = User.class.getName();
 

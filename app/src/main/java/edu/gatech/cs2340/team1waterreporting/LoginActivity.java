@@ -28,6 +28,7 @@ import edu.gatech.cs2340.team1waterreporting.model.UserInputException;
 /**
  * A login screen that offers login via email/password.
  */
+@SuppressWarnings("ChainedMethodCall")
 public class LoginActivity extends AppCompatActivity {
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -176,7 +177,7 @@ public class LoginActivity extends AppCompatActivity {
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
-    @SuppressWarnings("AssignmentToNull")
+    @SuppressWarnings({"AssignmentToNull", "ChainedMethodCall"})
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
         private final String mUsername;
