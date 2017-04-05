@@ -41,6 +41,7 @@ public class GraphFragment extends Fragment {
         return new GraphFragment();
     }
 
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_graph_data, container, false);
