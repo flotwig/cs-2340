@@ -69,6 +69,7 @@ public class EditProfileFragment extends Fragment {
         }
     }
 
+    @SuppressWarnings("OverlyLongMethod")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -132,6 +133,7 @@ public class EditProfileFragment extends Fragment {
      * onClick handler that will save any edited fields.
      * @param v Save button
      */
+    @SuppressWarnings({"OverlyComplexMethod", "OverlyLongMethod"})
     public void onClickSaveButton(View v) {
         // check each field for changes and provide some feedback if it was updated
         // TODO: provide some feedback if it was updated

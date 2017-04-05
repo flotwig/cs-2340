@@ -25,7 +25,7 @@ public class NewWaterQualityReportFragment extends Fragment {
     private EditText mLatitude;
     private EditText mLongitude;
     private EditText mVirusPpm;
-    private EditText mContaminentsPpm;
+    private EditText mContaminantsPpm;
 
     /**
      * Creates an empty NewWaterReportFragment.
@@ -61,7 +61,7 @@ public class NewWaterQualityReportFragment extends Fragment {
         mLatitude = (EditText) v.findViewById(R.id.new_water_report_latitude);
         mLongitude = (EditText) v.findViewById(R.id.new_water_report_longitude);
         mVirusPpm = (EditText) v.findViewById(R.id.new_water_report_virusppm);
-        mContaminentsPpm = (EditText) v.findViewById(R.id.new_water_report_contaminentppm);
+        mContaminantsPpm = (EditText) v.findViewById(R.id.new_water_report_contaminentppm);
 
         mWaterCondition = (Spinner) v.findViewById(R.id.new_water_report_water_condition_spinner);
 
@@ -103,10 +103,10 @@ public class NewWaterQualityReportFragment extends Fragment {
         }
 
         try {
-            WaterPurityReport.validatePpm(mContaminentsPpm.getText().toString());
+            WaterPurityReport.validatePpm(mContaminantsPpm.getText().toString());
         } catch (UserInputException e) {
-            mContaminentsPpm.setError(e.getMessage());
-            errorControl = mContaminentsPpm;
+            mContaminantsPpm.setError(e.getMessage());
+            errorControl = mContaminantsPpm;
         }
 
         if (errorControl != null) {
@@ -121,7 +121,7 @@ public class NewWaterQualityReportFragment extends Fragment {
                     ),
                     (WaterCondition) mWaterCondition.getSelectedItem(),
                     Float.parseFloat(mVirusPpm.getText().toString()),
-                    Float.parseFloat(mContaminentsPpm.getText().toString())
+                    Float.parseFloat(mContaminantsPpm.getText().toString())
             );
             Model.getInstance().addWaterPurityReport(waterPurityReport);
             ((MainDrawerActivity) getActivity()).switchFragment(ListWaterReportsFragment.newInstance());

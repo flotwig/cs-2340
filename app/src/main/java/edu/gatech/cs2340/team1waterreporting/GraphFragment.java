@@ -19,7 +19,9 @@ import edu.gatech.cs2340.team1waterreporting.model.Location;
 import edu.gatech.cs2340.team1waterreporting.model.Model;
 import edu.gatech.cs2340.team1waterreporting.model.UserInputException;
 import edu.gatech.cs2340.team1waterreporting.model.WaterPurityReport;
-import edu.gatech.cs2340.team1waterreporting.model.WaterSourceReport;
+
+// Commenting out this import due to it not being used. Leaving it here in case that changes
+// import edu.gatech.cs2340.team1waterreporting.model.WaterSourceReport;
 
 /**
  * Fragment to control and display graphs of contaminent PPM over time.
@@ -43,6 +45,7 @@ public class GraphFragment extends Fragment {
         return new GraphFragment();
     }
 
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_graph_data, container, false);

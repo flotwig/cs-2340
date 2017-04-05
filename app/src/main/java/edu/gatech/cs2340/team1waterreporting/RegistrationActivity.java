@@ -47,6 +47,7 @@ public class RegistrationActivity extends AppCompatActivity {
      * errors are presented and no actual registration attempt is made.
      * @param v Register button
      */
+    @SuppressWarnings("OverlyLongMethod")
     public void onClickRegisterButton(View v) {
         String name = mName.getText().toString();
         String id = mId.getText().toString();
