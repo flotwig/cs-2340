@@ -19,6 +19,7 @@ import edu.gatech.cs2340.team1waterreporting.model.UserRole;
  * A registration screen that offers the opportunity to register for the app
  */
 
+@SuppressWarnings("unchecked")
 public class RegistrationActivity extends AppCompatActivity {
 
     private EditText mName;
