@@ -144,14 +144,14 @@ public class User implements Serializable {
     }
 
     /**
-     * Get user's email addr
-     * @return email addr
+     * Get user's email address
+     * @return email address
      */
     public String getEmailAddress() {return emailAddress;}
 
     /**
-     * Set user's email addr
-     * @param emailAddress new email addr
+     * Set user's email address
+     * @param emailAddress new email address
      */
     public void setEmailAddress(String emailAddress) {this.emailAddress = emailAddress;}
 
