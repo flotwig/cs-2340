@@ -25,18 +25,34 @@ public class Location {
         this.latitude = latitude;
     }
 
+    /**
+     * Get longitude.
+     * @return longitude
+     */
     public double getLongitude() {
         return longitude;
     }
 
+    /**
+     * Set longitude.
+     * @param longitude new longitude
+     */
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
+    /**
+     * Get latitude.
+     * @return latitude
+     */
     public double getLatitude() {
         return latitude;
     }
 
+    /**
+     * Set latitude.
+     * @param latitude new latitude
+     */
     public void setLatitude(double latitude) {
         this.latitude = latitude;
     }

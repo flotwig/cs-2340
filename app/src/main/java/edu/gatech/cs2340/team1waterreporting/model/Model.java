@@ -11,6 +11,10 @@ public class Model extends FirebaseDAO {
         super();
     }
 
+    /**
+     * Retrieve the singleton instance of the model.
+     * @return the instance!
+     */
     public synchronized static Model getInstance() {
         if (instance == null)
             instance = new Model();

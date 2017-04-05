@@ -39,34 +39,66 @@ public class LogEvent {
         this.metadata = metadata;
     }
 
+    /**
+     * Get log event type.
+     * @return log event type
+     */
     public LogEventType getType() {
         return type;
     }
 
+    /**
+     * Set log event type.
+     * @param type new log event type
+     */
     public void setType(LogEventType type) {
         this.type = type;
     }
 
+    /**
+     * Get date.
+     * @return log event data
+     */
     public Date getDate() {
         return date;
     }
 
+    /**
+     * Set date.
+     * @param date new log event date
+     */
     public void setDate(Date date) {
         this.date = date;
     }
 
+    /**
+     * Get user. Can be null.
+     * @return user belonging to log event.
+     */
     public User getUser() {
         return user;
     }
 
+    /**
+     * Set user.
+     * @param user new user
+     */
     public void setUser(User user) {
         this.user = user;
     }
 
+    /**
+     * Get log event metadata.
+     * @return event metadata
+     */
     public HashMap<String, String> getMetadata() {
         return metadata;
     }
 
+    /**
+     * Set log event metadata.
+     * @param metadata new metadata
+     */
     public void setMetadata(HashMap<String, String> metadata) {
         this.metadata = metadata;
     }

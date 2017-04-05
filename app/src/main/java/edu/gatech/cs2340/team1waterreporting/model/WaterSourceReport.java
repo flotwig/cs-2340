@@ -35,26 +35,50 @@ public class WaterSourceReport {
         this.waterCondition = waterCondition;
     }
 
+    /**
+     * Get report date
+     * @return date
+     */
     public Date getDate() {
         return date;
     }
 
+    /**
+     * Get report number
+     * @return number
+     */
     public int getNumber() {
         return number;
     }
 
+    /**
+     * Get reporter
+     * @return reporting user
+     */
     public User getReporter() {
         return reporter;
     }
 
+    /**
+     * Get location
+     * @return report location
+     */
     public Location getLocation() {
         return location;
     }
 
+    /**
+     * Get water type
+     * @return water type
+     */
     public WaterType getWaterType() {
         return waterType;
     }
 
+    /**
+     * Get water condition
+     * @return water condition
+     */
     public WaterCondition getWaterCondition() {
         return waterCondition;
     }

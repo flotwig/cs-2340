@@ -51,58 +51,114 @@ public class WaterPurityReport {
         }
     }
 
+    /**
+     * Get report date
+     * @return date
+     */
     public Date getDate() {
         return date;
     }
 
+    /**
+     * Set report date
+     * @param date new date
+     */
     public void setDate(Date date) {
         this.date = date;
     }
 
+    /**
+     * Get report number
+     * @return number
+     */
     public int getNumber() {
         return number;
     }
 
+    /**
+     * Set report number
+     * @param number new number
+     */
     public void setNumber(int number) {
         this.number = number;
     }
 
+    /**
+     * Get reporter
+     * @return reporting user
+     */
     public User getReporter() {
         return reporter;
     }
 
+    /**
+     * Set reporter
+     * @param reporter new reporting user
+     */
     public void setReporter(User reporter) {
         this.reporter = reporter;
     }
 
+    /**
+     * Get location
+     * @return report location
+     */
     public Location getLocation() {
         return location;
     }
 
+    /**
+     * Set location
+     * @param location new location
+     */
     public void setLocation(Location location) {
         this.location = location;
     }
 
+    /**
+     * Get water condition
+     * @return water condition
+     */
     public WaterCondition getWaterCondition() {
         return waterCondition;
     }
 
+    /**
+     * Set water condition
+     * @param waterCondition new water condition
+     */
     public void setWaterCondition(WaterCondition waterCondition) {
         this.waterCondition = waterCondition;
     }
 
+    /**
+     * Get virus PPM
+     * @return virus PPM
+     */
     public double getVirusPpm() {
         return virusPpm;
     }
 
+    /**
+     * Set virus PPM
+     * @param virusPpm new virus PPM
+     */
     public void setVirusPpm(double virusPpm) {
         this.virusPpm = virusPpm;
     }
 
+    /**
+     * Get contaminant PPM
+     * @return contaminant PPM
+     */
     public double getContaminentPpm() {
         return contaminentPpm;
     }
 
+    /**
+     * Set contaminant PPM
+     * @param contaminantPpm new contaminant PPM
+     */
     public void setContaminentPpm(double contaminentPpm) {
         this.contaminentPpm = contaminentPpm;
     }

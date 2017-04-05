@@ -35,6 +35,10 @@ public class GraphFragment extends Fragment {
 
     private boolean doVirusPpm = false;
 
+    /**
+     * Returns a new instance of the graph fragment.
+     * @return GraphFragment
+     */
     public static GraphFragment newInstance() {
         return new GraphFragment();
     }

@@ -35,6 +35,10 @@ public class InMemoryDAO implements DAO {
         return true;
     }
 
+    /**
+     * Constructs a new instance of this DAO and populates it
+     * with some dummy data.
+     */
     public InMemoryDAO() {
         users = new ArrayList<>();
         waterSourceReports = new ArrayList<>();

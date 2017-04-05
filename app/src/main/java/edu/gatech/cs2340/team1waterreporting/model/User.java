@@ -68,18 +68,34 @@ public class User implements Serializable {
         }
     }
 
+    /**
+     * Get real name of user.
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Set real name of user.
+     * @param name new name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Get user ID (username)
+     * @return user ID
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     * Set user ID (username)
+     * @param id user ID
+     */
     public void setId(String id) {
         this.id = id;
     }
@@ -105,6 +121,10 @@ public class User implements Serializable {
         return password;
     }
 
+    /**
+     * Sets user password.
+     * @param password user's new password
+     */
     public void setPassword(String password) {
         this.password = password;
     }
@@ -123,8 +143,16 @@ public class User implements Serializable {
         }
     }
 
+    /**
+     * Get user's email addr
+     * @return email addr
+     */
     public String getEmailAddress() {return emailAddress;}
 
+    /**
+     * Set user's email addr
+     * @param emailAddress new email addr
+     */
     public void setEmailAddress(String emailAddress) {this.emailAddress = emailAddress;}
 
     /**
@@ -138,18 +166,42 @@ public class User implements Serializable {
         }
     }
 
+    /**
+     * Get home address
+     * @return home address
+     */
     public String getHomeAddress() {return homeAddress;}
 
+    /**
+     * Set user's new home address.
+     * @param homeAddress new home address
+     */
     public void setHomeAddress(String homeAddress) {this.homeAddress = homeAddress;}
 
-    public String getTitle () {return title;}
+    /**
+     * Get user's title (Mr, Mrs, etc.)
+     * @return user's title
+     */
+    public String getTitle() {return title;}
 
+    /**
+     * Set user's title
+     * @param title user's new title
+     */
     public void setTitle(String title) {this.title = title;}
 
+    /**
+     * Get user's role
+     * @return user's role
+     */
     public UserRole getUserRole() {
         return userRole;
     }
 
+    /**
+     * Set user's role
+     * @param userRole new user role
+     */
     public void setUserRole(UserRole userRole) {
         this.userRole = userRole;
     }

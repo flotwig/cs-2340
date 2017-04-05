@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import edu.gatech.cs2340.team1waterreporting.model.WaterPurityReport;
 
@@ -22,7 +23,7 @@ class WaterQualityReportArrayAdapter extends ArrayAdapter<WaterPurityReport> {
      * @param context context to operate in
      * @param waterPurityReports WaterPurityReport objects to show
      */
-    public WaterQualityReportArrayAdapter(Context context, ArrayList<WaterPurityReport> waterPurityReports) {
+    public WaterQualityReportArrayAdapter(Context context, List<WaterPurityReport> waterPurityReports) {
         super(context, 0, waterPurityReports);
     }
 

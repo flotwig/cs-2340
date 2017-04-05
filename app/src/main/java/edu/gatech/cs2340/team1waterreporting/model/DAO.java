@@ -8,8 +8,18 @@ import java.util.NoSuchElementException;
  */
 
 public interface DAO {
+    /**
+     * Gets the currently logged in user.
+     * @return Logged in user. null if no user logged in.
+     */
     User getCurrentUser();
+
+    /**
+     * Set the currently logged in user.
+     * @param user User to be logged in.
+     */
     void setCurrentUser(User user);
+
     /**
      * Try a username and password against auth backend.
      * currentUser will be set if this succeeds.
@@ -20,9 +30,29 @@ public interface DAO {
      * @throws NoSuchElementException on user not found
      */
     boolean attemptLogin(String username, String password) throws UserInputException, NoSuchElementException;
+
+    /**
+     * Gets the next available water source report ID.
+     * @return available ID
+     */
     int getNewWaterSourceReportId();
+
+    /**
+     * Gets the next available water purity report ID.
+     * @return available ID
+     */
     int getNewWaterPurityReportId();
+
+    /**
+     * Get all water source reports.
+     * @return all water source reports
+     */
     List<WaterSourceReport> getWaterSourceReports();
+
+    /**
+     * Get all water purity reports.
+     * @return all water purity reports
+     */
     List<WaterPurityReport> getWaterPurityReports();
 
     /**
@@ -33,6 +63,11 @@ public interface DAO {
      * @return A list of matching water source reports.
      */
     List<WaterPurityReport> getWaterPurityReportsByLocationYear(Location location, double radiusMeters, int year);
+
+    /**
+     * Get all log events.
+     * @return All log events.
+     */
     List<LogEvent> getLogEvents();
     /**
      * Adds a new water source report to the list.
