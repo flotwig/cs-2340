@@ -18,6 +18,7 @@ public class FirebaseDAO extends InMemoryDAO implements ValueEventListener {
     FirebaseDatabase database;
     DatabaseReference root;
 
+    @SuppressWarnings("ThisEscapedInObjectConstruction")
     FirebaseDAO() {
         database = FirebaseDatabase.getInstance();
         root = database.getReference();
