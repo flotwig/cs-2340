@@ -15,7 +15,7 @@ public class InMemoryDAO implements DAO {
     protected List<User> users;
     protected User currentUser;
 
-    private static final double METERS_IN_DEGREE = 111000.0; // rough approximation of meters per latlng
+    private static final double METERS_IN_DEGREE = 111000.0; // rough approximation of meters per lat-long
 
     @Override
     public User getCurrentUser() {
