@@ -30,7 +30,8 @@ public interface DAO {
      * @throws NoSuchElementException on user not found
      */
     @SuppressWarnings("SameReturnValue")
-    boolean attemptLogin(String username, String password) throws UserInputException, NoSuchElementException;
+    boolean attemptLogin(String username, String password)
+        throws UserInputException, NoSuchElementException;
 
     /**
      * Gets the next available water source report ID.
@@ -63,7 +64,8 @@ public interface DAO {
      * @param year Target year.
      * @return A list of matching water source reports.
      */
-    List<WaterPurityReport> getWaterPurityReportsByLocationYear(Location location, double radiusMeters, int year);
+    List<WaterPurityReport>
+        getWaterPurityReportsByLocationYear(Location location, double radiusMeters, int year);
 
     /**
      * Get all log events.

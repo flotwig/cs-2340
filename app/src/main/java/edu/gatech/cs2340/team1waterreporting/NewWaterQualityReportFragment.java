@@ -65,7 +65,8 @@ public class NewWaterQualityReportFragment extends Fragment {
 
         mWaterCondition = (Spinner) v.findViewById(R.id.new_water_report_water_condition_spinner);
 
-        ArrayAdapter standings = new ArrayAdapter(super.getContext(),android.R.layout.simple_spinner_item, WaterCondition.values());
+        ArrayAdapter standings = new ArrayAdapter(super.getContext(),
+            android.R.layout.simple_spinner_item, WaterCondition.values());
         standings.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mWaterCondition.setAdapter(standings);
 
@@ -124,7 +125,8 @@ public class NewWaterQualityReportFragment extends Fragment {
                     Float.parseFloat(mContaminantsPpm.getText().toString())
             );
             Model.getInstance().addWaterPurityReport(waterPurityReport);
-            ((MainDrawerActivity) getActivity()).switchFragment(ListWaterReportsFragment.newInstance());
+            ((MainDrawerActivity)
+                getActivity()).switchFragment(ListWaterReportsFragment.newInstance());
         }
     }
 

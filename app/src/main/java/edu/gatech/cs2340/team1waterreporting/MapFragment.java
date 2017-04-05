@@ -57,7 +57,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             }
         });
 
-        SupportMapFragment mMap = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+        SupportMapFragment mMap =
+            (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mMap.getMapAsync(this);
 
         return v;
@@ -89,7 +90,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             marker.setTag(waterSourceReport);
             marker.setVisible(true);
             marker.showInfoWindow();
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(waterSourceReport.getLocation().toLatLng()));
+            googleMap.moveCamera(CameraUpdateFactory.
+                newLatLng(waterSourceReport.getLocation().toLatLng()));
         }
     }
 }

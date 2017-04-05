@@ -39,7 +39,8 @@ public class MainDrawerActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            this, drawer, toolbar, R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -55,10 +56,13 @@ public class MainDrawerActivity extends AppCompatActivity
         switch (Model.getInstance().getCurrentUser().getUserRole()) {
             case ADMIN:
             case MANAGER:
-                menu.add(0, MENU_LIST_PURITY_REPORTS, Menu.NONE, "List Water Purity Reports").setIcon(R.drawable.ic_menu_share);
-                menu.add(0, MENU_GRAPH_PURITY_REPORTS, Menu.NONE, "Water Quality History Graph").setIcon(R.drawable.ic_menu_graph);
+                menu.add(0, MENU_LIST_PURITY_REPORTS, Menu.NONE, "List Water Purity Reports").
+                    setIcon(R.drawable.ic_menu_share);
+                menu.add(0, MENU_GRAPH_PURITY_REPORTS, Menu.NONE, "Water Quality History Graph").
+                    setIcon(R.drawable.ic_menu_graph);
             case WORKER:
-                menu.add(0, MENU_NEW_PURITY_REPORT, Menu.NONE, "New Water Purity Report").setIcon(R.drawable.ic_menu_manage);
+                menu.add(0, MENU_NEW_PURITY_REPORT, Menu.NONE, "New Water Purity Report").
+                    setIcon(R.drawable.ic_menu_manage);
             case USER:
             default:
         }

@@ -26,7 +26,9 @@ public class WaterSourceReport {
      * @param waterType property value
      * @param waterCondition property value
      */
-    public WaterSourceReport(int number, User reporter, Location location, WaterType waterType, WaterCondition waterCondition) {
+    public WaterSourceReport(int number, User reporter, Location location, WaterType waterType,
+         WaterCondition waterCondition) {
+
         this();
         this.number = number;
         this.reporter = reporter;

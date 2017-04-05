@@ -36,7 +36,9 @@ public class RegistrationActivity extends AppCompatActivity {
         mId = (EditText) findViewById(R.id.register_username);
         mRole = (Spinner) findViewById(R.id.account_type_spinner);
 
-        ArrayAdapter<UserRole> standings = new ArrayAdapter(this,android.R.layout.simple_spinner_item, UserRole.values());
+        ArrayAdapter<UserRole> standings =
+            new ArrayAdapter(this,android.R.layout.simple_spinner_item, UserRole.values());
+
         standings.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mRole.setAdapter(standings);
     }

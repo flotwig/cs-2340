@@ -65,11 +65,14 @@ public class NewWaterReportFragment extends Fragment {
         mWaterType = (Spinner) v.findViewById(R.id.new_water_report_water_type_spinner);
         mWaterCondition = (Spinner) v.findViewById(R.id.new_water_report_water_condition_spinner);
 
-        ArrayAdapter<UserRole> standings = new ArrayAdapter(super.getContext(),android.R.layout.simple_spinner_item, WaterType.values());
+        ArrayAdapter<UserRole> standings = new ArrayAdapter(super.getContext(),
+            android.R.layout.simple_spinner_item, WaterType.values());
+
         standings.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mWaterType.setAdapter(standings);
 
-        standings = new ArrayAdapter(super.getContext(),android.R.layout.simple_spinner_item, WaterCondition.values());
+        standings = new ArrayAdapter(super.getContext(),
+            android.R.layout.simple_spinner_item, WaterCondition.values());
         standings.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mWaterCondition.setAdapter(standings);
 
@@ -110,7 +113,8 @@ public class NewWaterReportFragment extends Fragment {
                     (WaterCondition) mWaterCondition.getSelectedItem()
             );
             Model.getInstance().addWaterSourceReport(waterSourceReport);
-            ((MainDrawerActivity) getActivity()).switchFragment(ListWaterReportsFragment.newInstance());
+            ((MainDrawerActivity)
+                getActivity()).switchFragment(ListWaterReportsFragment.newInstance());
         }
     }
 
