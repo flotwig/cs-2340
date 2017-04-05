@@ -28,8 +28,6 @@ public class GraphFragment extends Fragment {
 
     private EditText mLatitude;
     private EditText mLongitude;
-    private EditText mSearchRadiusMeters;
-    private EditText mYear;
     private GraphView mGraph;
 
     private boolean doVirusPpm = false;
@@ -46,7 +44,7 @@ public class GraphFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_graph_data, container, false);
-        Button mSaveButton = (Button) view.findViewById(R.id.graph_enter_contaminent);
+        Button mSaveButton = (Button) view.findViewById(R.id.graph_enter_contaminant);
         mSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,8 +65,8 @@ public class GraphFragment extends Fragment {
 
         mLatitude = (EditText) view.findViewById(R.id.graph_latitude);
         mLongitude = (EditText) view.findViewById(R.id.graph_longitude);
-        mSearchRadiusMeters = (EditText) view.findViewById(R.id.graph_search_radius_meters);
-        mYear = (EditText) view.findViewById(R.id.graph_year);
+        EditText mSearchRadiusMeters = (EditText) view.findViewById(R.id.graph_search_radius_meters);
+        EditText mYear = (EditText) view.findViewById(R.id.graph_year);
         mGraph = (GraphView) view.findViewById(R.id.graphView);
         mGraph.setVisibility(view.INVISIBLE);
 

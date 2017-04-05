@@ -26,6 +26,15 @@ public class Location {
     }
 
     /**
+     * Convenience constructor for a location.
+     * @param latitude Latitude as a float string
+     * @param longitude Longitude as a float string
+     */
+    public Location(String latitude, String longitude) {
+        this(Float.parseFloat(latitude), Float.parseFloat(longitude));
+    }
+
+    /**
      * Get longitude.
      * @return longitude
      */

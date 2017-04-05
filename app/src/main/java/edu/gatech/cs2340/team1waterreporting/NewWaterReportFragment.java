@@ -105,10 +105,7 @@ public class NewWaterReportFragment extends Fragment {
             WaterSourceReport waterSourceReport = new WaterSourceReport(
                     Model.getInstance().getNewWaterSourceReportId(),
                     Model.getInstance().getCurrentUser(),
-                    new Location(
-                            Float.parseFloat(mLatitude.getText().toString()),
-                            Float.parseFloat(mLongitude.getText().toString())
-                    ),
+                    new Location(mLatitude.getText().toString(), mLongitude.getText().toString()),
                     (WaterType) mWaterType.getSelectedItem(),
                     (WaterCondition) mWaterCondition.getSelectedItem()
             );

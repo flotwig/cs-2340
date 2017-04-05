@@ -50,6 +50,7 @@ public class MainDrawerActivity extends AppCompatActivity
         switchFragment(ListWaterReportsFragment.newInstance());
     }
 
+    @SuppressWarnings("fallthrough")
     private void addPrivilegedMenuItems(Menu menu) {
         switch (Model.getInstance().getCurrentUser().getUserRole()) {
             case ADMIN:

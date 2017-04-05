@@ -29,6 +29,7 @@ public interface DAO {
      * @throws UserInputException on bad password
      * @throws NoSuchElementException on user not found
      */
+    @SuppressWarnings("SameReturnValue")
     boolean attemptLogin(String username, String password) throws UserInputException, NoSuchElementException;
 
     /**
