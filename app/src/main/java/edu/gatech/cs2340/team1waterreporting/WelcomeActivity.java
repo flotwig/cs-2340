@@ -20,6 +20,7 @@ public class WelcomeActivity extends AppCompatActivity {
      * onClick handler to transition to login screen.
      * @param v Login button
      */
+    @SuppressWarnings("UnusedParameters")
     public void onClickLoginButton(View v) {
         Intent i = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(i);
@@ -29,6 +30,7 @@ public class WelcomeActivity extends AppCompatActivity {
      * onClick handler to transition to register screen
      * @param v Register button
      */
+    @SuppressWarnings("UnusedParameters")
     public void onClickRegisterButton(View v) {
         Intent i = new Intent(getApplicationContext(), RegistrationActivity.class);
         startActivity(i);

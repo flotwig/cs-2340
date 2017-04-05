@@ -7,6 +7,7 @@ import java.util.NoSuchElementException;
  * General interface for data access objects for this app.
  */
 
+@SuppressWarnings("unused")
 public interface DAO {
     /**
      * Gets the currently logged in user.

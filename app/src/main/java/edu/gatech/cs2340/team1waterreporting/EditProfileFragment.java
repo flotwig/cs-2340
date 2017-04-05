@@ -37,13 +37,6 @@ public class EditProfileFragment extends Fragment {
     private int indexOfTitle;
 
     /**
-     * Creates an empty EditProfileFragment.
-     */
-    public EditProfileFragment() {
-
-    }
-
-    /**
      * New instance of form to edit a user.
      *
      * @param user User
@@ -137,8 +130,8 @@ public class EditProfileFragment extends Fragment {
      * onClick handler that will save any edited fields.
      * @param v Save button
      */
-    @SuppressWarnings({"OverlyComplexMethod", "OverlyLongMethod"})
-    public void onClickSaveButton(View v) {
+    @SuppressWarnings({"OverlyComplexMethod", "OverlyLongMethod", "UnusedParameters"})
+    private void onClickSaveButton(View v) {
         // check each field for changes and provide some feedback if it was updated
         // TODO: provide some feedback if it was updated
         EditText errorControl = null;

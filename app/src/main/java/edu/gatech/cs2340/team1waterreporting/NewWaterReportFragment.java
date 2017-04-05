@@ -29,13 +29,6 @@ public class NewWaterReportFragment extends Fragment {
     private EditText mLongitude;
 
     /**
-     * Creates an empty NewWaterReportFragment.
-     */
-    public NewWaterReportFragment() {
-
-    }
-
-    /**
      * New instance of form to edit a user.
      *
      * @return A new instance of fragment EditProfileFragment.
@@ -85,6 +78,7 @@ public class NewWaterReportFragment extends Fragment {
      * validation errors.
      * @param v Save button
      */
+    @SuppressWarnings("UnusedParameters")
     private void onClickSaveButton(View v) {
         EditText errorControl = null;
 
