@@ -46,9 +46,9 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:ems="10"
-            android:id="@+id/new_water_report_contaminentppm"
+            android:id="@+id/new_water_report_contaminant_ppm"
             android:layout_weight="1"
-            android:hint="@string/contaminents_ppm" />
+            android:hint="@string/contaminants_ppm" />
     </LinearLayout>
 
     <Spinner

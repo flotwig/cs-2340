@@ -14,7 +14,7 @@ import java.util.List;
 import edu.gatech.cs2340.team1waterreporting.model.WaterSourceReport;
 
 /**
- * Adapter to translate an array of water source reports into a listview.
+ * Adapter to translate an array of water source reports into a ListView.
  */
 
 class WaterSourceReportArrayAdapter extends ArrayAdapter<WaterSourceReport> {

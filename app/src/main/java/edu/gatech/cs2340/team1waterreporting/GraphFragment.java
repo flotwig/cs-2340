@@ -20,11 +20,8 @@ import edu.gatech.cs2340.team1waterreporting.model.Model;
 import edu.gatech.cs2340.team1waterreporting.model.UserInputException;
 import edu.gatech.cs2340.team1waterreporting.model.WaterPurityReport;
 
-// Commenting out this import due to it not being used. Leaving it here in case that changes
-// import edu.gatech.cs2340.team1waterreporting.model.WaterSourceReport;
-
 /**
- * Fragment to control and display graphs of contaminent PPM over time.
+ * Fragment to control and display graphs of contaminant PPM over time.
  */
 
 public class GraphFragment extends Fragment {
@@ -86,7 +83,7 @@ public class GraphFragment extends Fragment {
             months[i] = new LinkedList<>();
         }
         for (WaterPurityReport waterPurityReport : targetReports) {
-            months[waterPurityReport.getDate().getMonth()].add((int) ((doVirusPpm) ? waterPurityReport.getVirusPpm() : waterPurityReport.getContaminentPpm()));
+            months[waterPurityReport.getDate().getMonth()].add((int) ((doVirusPpm) ? waterPurityReport.getVirusPpm() : waterPurityReport.getContaminantPpm()));
         }
         int cMonth = 1;
         for (LinkedList<Integer> month : months) {

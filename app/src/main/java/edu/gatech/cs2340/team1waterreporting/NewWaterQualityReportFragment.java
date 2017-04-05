@@ -61,7 +61,7 @@ public class NewWaterQualityReportFragment extends Fragment {
         mLatitude = (EditText) v.findViewById(R.id.new_water_report_latitude);
         mLongitude = (EditText) v.findViewById(R.id.new_water_report_longitude);
         mVirusPpm = (EditText) v.findViewById(R.id.new_water_report_virusppm);
-        mContaminantsPpm = (EditText) v.findViewById(R.id.new_water_report_contaminentppm);
+        mContaminantsPpm = (EditText) v.findViewById(R.id.new_water_report_contaminant_ppm);
 
         mWaterCondition = (Spinner) v.findViewById(R.id.new_water_report_water_condition_spinner);
 

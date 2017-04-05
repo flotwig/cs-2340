@@ -13,7 +13,7 @@ public class WaterPurityReport {
     private Location location;
     private WaterCondition waterCondition;
     private double virusPpm;
-    private double contaminentPpm;
+    private double contaminantPpm;
 
     private WaterPurityReport() {
         this.date = new Date();
@@ -26,17 +26,17 @@ public class WaterPurityReport {
      * @param location property value
      * @param waterCondition property value
      * @param virusPpm property value
-     * @param contaminentPpm property value
+     * @param contaminantPpm property value
      */
     @SuppressWarnings("ConstructorWithTooManyParameters")
-    public WaterPurityReport(int number, User reporter, Location location, WaterCondition waterCondition, double virusPpm, double contaminentPpm) {
+    public WaterPurityReport(int number, User reporter, Location location, WaterCondition waterCondition, double virusPpm, double contaminantPpm) {
         this();
         this.number = number;
         this.reporter = reporter;
         this.location = location;
         this.waterCondition = waterCondition;
         this.virusPpm = virusPpm;
-        this.contaminentPpm = contaminentPpm;
+        this.contaminantPpm = contaminantPpm;
     }
 
     /**
@@ -152,15 +152,15 @@ public class WaterPurityReport {
      * Get contaminant PPM
      * @return contaminant PPM
      */
-    public double getContaminentPpm() {
-        return contaminentPpm;
+    public double getContaminantPpm() {
+        return contaminantPpm;
     }
 
     /**
      * Set contaminant PPM
      * @param contaminantPpm new contaminant PPM
      */
-    public void setContaminentPpm(double contaminentPpm) {
-        this.contaminentPpm = contaminentPpm;
+    public void setContaminantPpm(double contaminantPpm) {
+        this.contaminantPpm = contaminantPpm;
     }
 }

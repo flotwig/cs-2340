@@ -37,7 +37,7 @@ public class Logger {
     /**
      * Store log event with metadata.
      * @param logEventType Type for log event
-     * @param metadata Hashmap for metadata
+     * @param metadata HashMap for metadata
      */
     public static void log(LogEventType logEventType, HashMap<String, String> metadata) {
         LogEvent logEvent = new LogEvent(Model.getInstance().getCurrentUser(), logEventType, metadata);

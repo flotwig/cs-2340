@@ -45,6 +45,6 @@
     <string name="longitude">Longitude</string>
     <string name="avatar">Avatar</string>
     <string name="viruses_ppm">Viruses (PPM)</string>
-    <string name="contaminents_ppm">Contaminents (PPM)</string>
+    <string name="contaminants_ppm">Contaminants (PPM)</string>
     <string name="save">Save</string>
 </resources>

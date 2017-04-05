@@ -8,13 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import edu.gatech.cs2340.team1waterreporting.model.WaterPurityReport;
 
 /**
- * Adapter to translate an array of water quality reports into a listview.
+ * Adapter to translate an array of water quality reports into a ListView.
  */
 
 class WaterQualityReportArrayAdapter extends ArrayAdapter<WaterPurityReport> {
@@ -42,10 +41,10 @@ class WaterQualityReportArrayAdapter extends ArrayAdapter<WaterPurityReport> {
 
         mNumber.setText(Integer.toString(waterPurityReport.getNumber()));
         mRow.setText(String.format(
-                "%s (%f virus PPM, %f contaminent PPM)\nby %s on %s\nLat: %f Lng: %f",
+                "%s (%f virus PPM, %f contaminant PPM)\nby %s on %s\nLat: %f Lng: %f",
                 waterPurityReport.getWaterCondition().toString(),
                 waterPurityReport.getVirusPpm(),
-                waterPurityReport.getContaminentPpm(),
+                waterPurityReport.getContaminantPpm(),
                 waterPurityReport.getReporter().getName(),
                 waterPurityReport.getDate().toString(),
                 waterPurityReport.getLocation().getLatitude(),
