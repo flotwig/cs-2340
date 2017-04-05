@@ -174,6 +174,7 @@ public class LoginActivity extends AppCompatActivity {
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
+    @SuppressWarnings("AssignmentToNull")
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
         private final String mUsername;
