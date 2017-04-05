@@ -26,9 +26,6 @@ import edu.gatech.cs2340.team1waterreporting.model.WaterSourceReport;
  */
 public class MapFragment extends Fragment implements OnMapReadyCallback {
 
-    private SupportMapFragment mMap;
-    private FloatingActionButton mNewButton;
-
     /**
      * Creates an empty ListWaterReportsFragment.
      */
@@ -52,7 +49,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         getActivity().setTitle(getString(R.string.title_fragment_map));
 
-        mNewButton = (FloatingActionButton) v.findViewById(R.id.fab);
+        FloatingActionButton mNewButton = (FloatingActionButton) v.findViewById(R.id.fab);
         mNewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +57,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             }
         });
 
-        mMap = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+        SupportMapFragment mMap = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mMap.getMapAsync(this);
 
         return v;

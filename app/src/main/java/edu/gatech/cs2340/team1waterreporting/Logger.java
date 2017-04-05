@@ -11,6 +11,7 @@ import edu.gatech.cs2340.team1waterreporting.model.Model;
  * TODO: figure out if this should go somewhere else
  */
 
+@SuppressWarnings("UtilityClass")
 public class Logger {
     /**
      * Store a login attempt log event

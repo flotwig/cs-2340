@@ -18,9 +18,6 @@ import edu.gatech.cs2340.team1waterreporting.model.Model;
  */
 public class ListWaterReportsFragment extends Fragment {
 
-    private ListView mList;
-    private FloatingActionButton mNewButton;
-
     /**
      * Creates an empty ListWaterReportsFragment.
      */
@@ -44,7 +41,7 @@ public class ListWaterReportsFragment extends Fragment {
 
         getActivity().setTitle(getString(R.string.title_fragment_list_water_reports));
 
-        mNewButton = (FloatingActionButton) v.findViewById(R.id.fab);
+        FloatingActionButton mNewButton = (FloatingActionButton) v.findViewById(R.id.fab);
         mNewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,7 +49,7 @@ public class ListWaterReportsFragment extends Fragment {
             }
         });
 
-        mList = (ListView) v.findViewById(R.id.list);
+        ListView mList = (ListView) v.findViewById(R.id.list);
         mList.setAdapter(new WaterSourceReportArrayAdapter(getContext(), (ArrayList) Model.getInstance().getWaterSourceReports()));
 
         return v;
