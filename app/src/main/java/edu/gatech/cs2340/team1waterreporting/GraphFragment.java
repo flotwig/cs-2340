@@ -12,6 +12,7 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -28,6 +29,8 @@ public class GraphFragment extends Fragment {
 
     private EditText mLatitude;
     private EditText mLongitude;
+    private EditText mSearchRadiusMeters;
+    private EditText mYear;
     private GraphView mGraph;
 
     private boolean doVirusPpm = false;
@@ -65,11 +68,10 @@ public class GraphFragment extends Fragment {
 
         mLatitude = (EditText) view.findViewById(R.id.graph_latitude);
         mLongitude = (EditText) view.findViewById(R.id.graph_longitude);
-        EditText mSearchRadiusMeters =
-            (EditText) view.findViewById(R.id.graph_search_radius_meters);
-        EditText mYear = (EditText) view.findViewById(R.id.graph_year);
+        mSearchRadiusMeters = (EditText) view.findViewById(R.id.graph_search_radius_meters);
+        mYear = (EditText) view.findViewById(R.id.graph_year);
         mGraph = (GraphView) view.findViewById(R.id.graphView);
-        mGraph.setVisibility(view.INVISIBLE);
+        mGraph.setVisibility(View.INVISIBLE);
 
         return view;
     }
@@ -98,8 +100,8 @@ public class GraphFragment extends Fragment {
             cMonth++;
         }
         graph.getGridLabelRenderer().setNumHorizontalLabels(12);
-        graph.getGridLabelRenderer().setHorizontalAxisTitle("Month");
-        graph.getGridLabelRenderer().setVerticalAxisTitle("PPM");
+        graph.getGridLabelRenderer().setHorizontalAxisTitle(getString(R.string.month));
+        graph.getGridLabelRenderer().setVerticalAxisTitle(getString(R.string.ppm));
         graph.removeAllSeries();
         graph.addSeries(series);
     }
@@ -123,6 +125,30 @@ public class GraphFragment extends Fragment {
         } catch (UserInputException e) {
             mLongitude.setError(e.getMessage());
             errorControl = mLongitude;
+        }
+
+        float srm;
+        try {
+            srm = Float.parseFloat(mSearchRadiusMeters.getText().toString());
+            if (srm <= 0) {
+                mSearchRadiusMeters.setError(getString(R.string.error_search_radius_lte0));
+                errorControl = mSearchRadiusMeters;
+            }
+        } catch (NumberFormatException e) {
+            errorControl = mSearchRadiusMeters;
+            mSearchRadiusMeters.setError(getString(R.string.error_search_radius_nan));
+        }
+
+        int year;
+        try {
+            year = Integer.parseInt(mYear.getText().toString());
+            if (year <= 0 || year > (new Date()).getYear()) {
+                mYear.setError(getString(R.string.error_year_bad));
+                errorControl = mYear;
+            }
+        } catch (NumberFormatException e) {
+            errorControl = mYear;
+            mYear.setError(getString(R.string.error_year_nan));
         }
 
         if (errorControl != null) {

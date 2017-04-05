@@ -47,4 +47,10 @@
     <string name="viruses_ppm">Viruses (PPM)</string>
     <string name="contaminants_ppm">Contaminants (PPM)</string>
     <string name="save">Save</string>
+    <string name="error_year_bad">Year must be greater than 0 and less than the current year.</string>
+    <string name="error_year_nan">Year must be a number.</string>
+    <string name="error_search_radius_nan">Search radius must be a number.</string>
+    <string name="error_search_radius_lte0">Search radius must be greater than 0.</string>
+    <string name="ppm">PPM</string>
+    <string name="month">Month</string>
 </resources>
