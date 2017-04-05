@@ -84,7 +84,7 @@ public class InMemoryDAO implements DAO {
 
     @Override
     public List<WaterPurityReport> getWaterPurityReportsByLocationYear(Location location, double radiusMeters, int year) {
-        List<WaterPurityReport> result = new ArrayList<WaterPurityReport>();
+        List<WaterPurityReport> result = new ArrayList();
         for(WaterPurityReport waterPurityReport : waterPurityReports) {
             if (waterPurityReport.getDate().getYear() == year &&
                     Math.abs(location.getLatitude() - waterPurityReport.getLocation().getLatitude()) <= radiusMeters / METERS_IN_DEGREE &&

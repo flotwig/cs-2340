@@ -79,12 +79,7 @@ public class GraphFragment extends Fragment {
     }
 
     private void populateGraphView(GraphView graph) {
-        DataPoint[] reports = new DataPoint[10];
-        List<WaterPurityReport> targetReports = Model.getInstance().getWaterPurityReportsByLocationYear(
-                new Location(Float.parseFloat(mLatitude.getText().toString()), Float.parseFloat(mLongitude.getText().toString())),
-                Float.parseFloat(mSearchRadiusMeters.getText().toString()),
-                Integer.parseInt(mYear.getText().toString()));
-        targetReports = Model.getInstance().getWaterPurityReports();
+        List<WaterPurityReport> targetReports = Model.getInstance().getWaterPurityReports();
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
         LinkedList<Integer>[] months = new LinkedList[12];
         for (int i = 0; i < months.length; i++) {

@@ -18,7 +18,7 @@ public class Logger {
      * @param userId userId the user tried to login with
      */
     public static void logLoginAttempt(String outcome, String userId) {
-        HashMap<String, String> hashMap = new HashMap<String, String>();
+        HashMap<String, String> hashMap = new HashMap();
         hashMap.put("outcome", outcome);
         hashMap.put("userId", userId);
         log(LogEventType.LOGIN_ATTEMPT, hashMap);

@@ -68,7 +68,7 @@ public class FirebaseDAO extends InMemoryDAO implements ValueEventListener {
     }
 
     private <T> List<T> iterableToList(Class cls, Iterable<DataSnapshot> iterable) {
-        List<T> list = new ArrayList<T>();
+        List<T> list = new ArrayList();
         for(DataSnapshot dataSnapshot : iterable) {
             list.add((T) dataSnapshot.getValue(cls));
         }
