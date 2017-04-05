@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -125,11 +124,11 @@ public class MainDrawerActivity extends AppCompatActivity
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         if (id == R.id.nav_logout) {
-            onClickLogoutButton(null);
+            onClickLogoutButton();
         } else if (id == R.id.nav_water_reports) {
             switchFragment(ListWaterReportsFragment.newInstance());
         } else if (id == R.id.nav_profile) {
-            switchFragment(EditProfileFragment.newInstance(null));
+            switchFragment(EditProfileFragment.newInstance());
         } else if (id == R.id.nav_water_report_map) {
             switchFragment(MapFragment.newInstance());
         } else if (id == MENU_NEW_PURITY_REPORT) {
@@ -150,10 +149,9 @@ public class MainDrawerActivity extends AppCompatActivity
 
     /**
      * onClick handler for logout. Sets current user to null and exits this activity.
-     * @param v Logout button
      */
     @SuppressWarnings("UnusedParameters")
-    private void onClickLogoutButton(View v) {
+    private void onClickLogoutButton() {
         Model.getInstance().setCurrentUser(null);
         finish();
     }

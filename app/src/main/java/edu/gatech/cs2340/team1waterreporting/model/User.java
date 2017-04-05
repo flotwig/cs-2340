@@ -38,7 +38,7 @@ public class User implements Serializable {
      * @throws UserInputException Has a user-friendly error message.
      */
     public static void validateName(String name) throws UserInputException {
-        if (name.length() == 0) {
+        if (name.isEmpty()) {
             throw new UserInputException("Name cannot be empty.");
         }
     }
@@ -49,7 +49,7 @@ public class User implements Serializable {
      * @throws UserInputException Has a user-friendly error message.
      */
     public static void validateId(String id) throws UserInputException {
-        if (id.length() == 0) {
+        if (id.isEmpty()) {
             throw new UserInputException("ID cannot be empty.");
         }
         if (!id.matches("[A-z0-9\\-_\\.]+")) {
@@ -64,7 +64,7 @@ public class User implements Serializable {
      * @throws UserInputException Has a user-friendly error message.
      */
     public static void validatePassword(String password) throws UserInputException {
-        if (password.length() == 0) {
+        if (password.isEmpty()) {
             throw new UserInputException("Password cannot be empty.");
         }
     }
@@ -136,7 +136,7 @@ public class User implements Serializable {
      * @throws UserInputException Has a user-friendly error message.
      */
     public static void validateEmailAddress(String emailAddress) throws UserInputException {
-        if (emailAddress.length() == 0) {
+        if (emailAddress.isEmpty()) {
             throw new UserInputException("Email Address cannot be empty.");
         }
         if (!emailAddress.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$")) {
@@ -163,7 +163,7 @@ public class User implements Serializable {
      * @throws UserInputException Has a user-friendly error message.
      */
     public static void validateHomeAddress(String homeAddress) throws UserInputException {
-        if (homeAddress.length() == 0) {
+        if (homeAddress.isEmpty()) {
             throw new UserInputException("Home Address cannot be empty.");
         }
     }

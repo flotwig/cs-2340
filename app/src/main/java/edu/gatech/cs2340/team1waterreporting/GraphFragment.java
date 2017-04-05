@@ -94,7 +94,7 @@ public class GraphFragment extends Fragment {
             for (int ppm : month) {
                 average += ppm;
             }
-            if (month.size() > 0) {
+            if (month.isEmpty()) {
                 average /= month.size();
                 series.appendData(new DataPoint(cMonth, average), false, months.length);
             }
@@ -144,7 +144,7 @@ public class GraphFragment extends Fragment {
         int year;
         try {
             year = Integer.parseInt(mYear.getText().toString());
-            if (year <= 0 || year > (new Date()).getYear()) {
+            if ((year <= 0) || (year > (new Date()).getYear())) {
                 mYear.setError(getString(R.string.error_year_bad));
                 errorControl = mYear;
             }

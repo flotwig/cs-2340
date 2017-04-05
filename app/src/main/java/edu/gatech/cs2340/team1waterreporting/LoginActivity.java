@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.AsyncTask;
@@ -33,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
+    @Nullable
     private UserLoginTask mAuthTask = null;
 
     // UI references.
@@ -53,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login || id == EditorInfo.IME_NULL) {
+                if ((id == R.id.login) || (id == EditorInfo.IME_NULL)) {
                     attemptLogin();
                     return true;
                 }
@@ -78,8 +80,8 @@ public class LoginActivity extends AppCompatActivity {
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void setupActionBar() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB &&
-            getSupportActionBar() != null) {
+        if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) &&
+                (getSupportActionBar() != null)) {
 
             // Show the Up button in the action bar.
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);

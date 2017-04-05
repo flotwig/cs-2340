@@ -35,6 +35,7 @@ public class LogEvent {
      * @param type property value
      * @param metadata property value
      */
+    @SuppressWarnings("AssignmentToCollectionOrArrayFieldFromParameter")
     public LogEvent(User user, LogEventType type, HashMap<String, String> metadata) {
         this(user, type);
         this.metadata = metadata;
@@ -100,6 +101,7 @@ public class LogEvent {
      * Set log event metadata.
      * @param metadata new metadata
      */
+    @SuppressWarnings("AssignmentToCollectionOrArrayFieldFromParameter")
     public void setMetadata(HashMap<String, String> metadata) {
         this.metadata = metadata;
     }

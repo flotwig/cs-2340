@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
  * An in-memory DAO for testing complete with dummy data.
  */
 
-@SuppressWarnings({"WeakerAccess", "unchecked", "ChainedMethodCall"})
+@SuppressWarnings({"WeakerAccess", "unchecked"})
 public class InMemoryDAO implements DAO {
     protected List<WaterPurityReport> waterPurityReports;
     protected List<WaterSourceReport> waterSourceReports;
@@ -67,7 +67,7 @@ public class InMemoryDAO implements DAO {
 
     @Override
     public int getNewWaterSourceReportId() {
-        if (waterSourceReports.size() == 0) {
+        if (waterSourceReports.isEmpty()) {
             return 1;
         }
         return waterSourceReports.get(waterSourceReports.size() - 1).getNumber() + 1;
@@ -76,7 +76,7 @@ public class InMemoryDAO implements DAO {
 
     @Override
     public int getNewWaterPurityReportId() {
-        if (waterPurityReports.size() == 0) {
+        if (waterPurityReports.isEmpty()) {
             return 1;
         }
         return waterPurityReports.get(waterPurityReports.size() - 1).getNumber() + 1;
@@ -99,11 +99,11 @@ public class InMemoryDAO implements DAO {
 
         List<WaterPurityReport> result = new ArrayList();
         for(WaterPurityReport waterPurityReport : waterPurityReports) {
-            if (waterPurityReport.getDate().getYear() == year && Math.abs(location.getLatitude() -
-                waterPurityReport.getLocation().getLatitude()) <= radiusMeters / METERS_IN_DEGREE
-                && Math.abs(location.getLongitude() -
-                waterPurityReport.getLocation().getLongitude())
-                <= radiusMeters / METERS_IN_DEGREE) {
+            if ((waterPurityReport.getDate().getYear() == year) && (Math.abs(location.getLatitude() -
+                    waterPurityReport.getLocation().getLatitude()) <= (radiusMeters / METERS_IN_DEGREE))
+                    && (Math.abs(location.getLongitude() -
+                    waterPurityReport.getLocation().getLongitude())
+                    <= (radiusMeters / METERS_IN_DEGREE))) {
 
                 result.add(waterPurityReport);
             }

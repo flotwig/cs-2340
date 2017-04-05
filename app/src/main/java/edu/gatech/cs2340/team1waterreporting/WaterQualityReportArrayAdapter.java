@@ -23,25 +23,23 @@ class WaterQualityReportArrayAdapter extends ArrayAdapter<WaterPurityReport> {
      * @param context context to operate in
      * @param waterPurityReports WaterPurityReport objects to show
      */
-    public WaterQualityReportArrayAdapter
-        (Context context, List<WaterPurityReport> waterPurityReports) {
-
+    public WaterQualityReportArrayAdapter(Context context, List<WaterPurityReport> waterPurityReports) {
         super(context, 0, waterPurityReports);
     }
 
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+        View convertView1 = convertView;
         WaterPurityReport waterPurityReport = getItem(position);
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).
-                inflate(R.layout.item_water_source_report, parent, false);
+        if (convertView1 == null) {
+            convertView1 = LayoutInflater.from(getContext()).inflate(R.layout.item_water_source_report, parent, false);
         }
         if (waterPurityReport == null) {
-            return convertView;
+            return convertView1;
         }
-        TextView mNumber = (TextView) convertView.findViewById(R.id.number_text);
-        TextView mRow = (TextView) convertView.findViewById(R.id.row_text);
+        TextView mNumber = (TextView) convertView1.findViewById(R.id.number_text);
+        TextView mRow = (TextView) convertView1.findViewById(R.id.row_text);
 
         mNumber.setText(Integer.toString(waterPurityReport.getNumber()));
         mRow.setText(String.format(
@@ -54,6 +52,6 @@ class WaterQualityReportArrayAdapter extends ArrayAdapter<WaterPurityReport> {
                 waterPurityReport.getLocation().getLatitude(),
                 waterPurityReport.getLocation().getLongitude()
         ));
-        return convertView;
+        return convertView1;
     }
 }

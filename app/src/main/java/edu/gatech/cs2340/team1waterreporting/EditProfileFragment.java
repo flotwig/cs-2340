@@ -40,14 +40,13 @@ public class EditProfileFragment extends Fragment {
     /**
      * New instance of form to edit a user.
      *
-     * @param user User
      * @return A new instance of fragment EditProfileFragment.
      */
-    public static EditProfileFragment newInstance(User user) {
+    public static EditProfileFragment newInstance() {
         EditProfileFragment fragment = new EditProfileFragment();
         Bundle args = new Bundle();
-        if (user != null) {
-            args.putSerializable(ARG_USER, user);
+        if (null != null) {
+            args.putSerializable(ARG_USER, null);
         } else {
             args.putSerializable(ARG_USER, Model.getInstance().getCurrentUser());
         }

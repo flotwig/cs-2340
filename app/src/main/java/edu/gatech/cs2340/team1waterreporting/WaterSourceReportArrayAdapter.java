@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.List;
 
 import edu.gatech.cs2340.team1waterreporting.model.WaterSourceReport;
@@ -24,25 +24,23 @@ class WaterSourceReportArrayAdapter extends ArrayAdapter<WaterSourceReport> {
      * @param context context to operate in
      * @param waterSourceReports WaterSourceReport objects to show
      */
-    public WaterSourceReportArrayAdapter(Context context,
-        List<WaterSourceReport> waterSourceReports) {
-
+    public WaterSourceReportArrayAdapter(Context context, List<WaterSourceReport> waterSourceReports) {
         super(context, 0, waterSourceReports);
     }
 
     @NonNull
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
+        View convertView1 = convertView;
         WaterSourceReport waterSourceReport = getItem(position);
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).
-                inflate(R.layout.item_water_source_report, parent, false);
+        if (convertView1 == null) {
+            convertView1 = LayoutInflater.from(getContext()).inflate(R.layout.item_water_source_report, parent, false);
         }
         if (waterSourceReport == null) {
-            return convertView;
+            return convertView1;
         }
-        TextView mNumber = (TextView) convertView.findViewById(R.id.number_text);
-        TextView mRow = (TextView) convertView.findViewById(R.id.row_text);
+        TextView mNumber = (TextView) convertView1.findViewById(R.id.number_text);
+        TextView mRow = (TextView) convertView1.findViewById(R.id.row_text);
 
         mNumber.setText(Integer.toString(waterSourceReport.getNumber()));
         mRow.setText(String.format(
@@ -55,6 +53,6 @@ class WaterSourceReportArrayAdapter extends ArrayAdapter<WaterSourceReport> {
                 waterSourceReport.getReporter().getName()
         ));
 
-        return convertView;
+        return convertView1;
     }
 }

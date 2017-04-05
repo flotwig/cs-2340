@@ -22,7 +22,7 @@ class Logger {
         HashMap<String, String> hashMap = new HashMap();
         hashMap.put("outcome", outcome);
         hashMap.put("userId", userId);
-        log(LogEventType.LOGIN_ATTEMPT, hashMap);
+        log(hashMap);
     }
 
     /**
@@ -36,12 +36,11 @@ class Logger {
 
     /**
      * Store log event with metadata.
-     * @param logEventType Type for log event
      * @param metadata HashMap for metadata
      */
-    private static void log(LogEventType logEventType, HashMap<String, String> metadata) {
+    private static void log(HashMap<String, String> metadata) {
         LogEvent logEvent =
-            new LogEvent(Model.getInstance().getCurrentUser(), logEventType, metadata);
+            new LogEvent(Model.getInstance().getCurrentUser(), LogEventType.LOGIN_ATTEMPT, metadata);
         Model.getInstance().addLogEvent(logEvent);
     }
 }
