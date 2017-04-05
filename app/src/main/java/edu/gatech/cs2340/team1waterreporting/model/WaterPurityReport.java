@@ -28,6 +28,7 @@ public class WaterPurityReport {
      * @param virusPpm property value
      * @param contaminentPpm property value
      */
+    @SuppressWarnings("ConstructorWithTooManyParameters")
     public WaterPurityReport(int number, User reporter, Location location, WaterCondition waterCondition, double virusPpm, double contaminentPpm) {
         this();
         this.number = number;
