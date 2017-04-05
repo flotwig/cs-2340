@@ -28,13 +28,6 @@ public class NewWaterQualityReportFragment extends Fragment {
     private EditText mContaminantsPpm;
 
     /**
-     * Creates an empty NewWaterReportFragment.
-     */
-    public NewWaterQualityReportFragment() {
-
-    }
-
-    /**
      * New instance of form to edit a user.
      *
      * @return A new instance of fragment NewWaterQualityReportFragment.
@@ -79,6 +72,7 @@ public class NewWaterQualityReportFragment extends Fragment {
      * validation errors.
      * @param v Save button
      */
+    @SuppressWarnings("UnusedParameters")
     private void onClickSaveButton(View v) {
         EditText errorControl = null;
 

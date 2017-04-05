@@ -108,6 +108,7 @@ public class GraphFragment extends Fragment {
      * onClick handler that will generate the appropriate graph.
      * @param v Save button
      */
+    @SuppressWarnings("UnusedParameters")
     private void onClickViewButton(View v) {
         EditText errorControl = null;
 

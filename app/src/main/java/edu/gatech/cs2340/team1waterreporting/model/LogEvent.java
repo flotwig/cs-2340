@@ -7,6 +7,7 @@ import java.util.HashMap;
  * Log of security events.
  */
 
+@SuppressWarnings("WeakerAccess")
 public class LogEvent {
     LogEventType type;
     Date date;

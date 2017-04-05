@@ -27,13 +27,6 @@ import edu.gatech.cs2340.team1waterreporting.model.WaterSourceReport;
 public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     /**
-     * Creates an empty ListWaterReportsFragment.
-     */
-    public MapFragment() {
-
-    }
-
-    /**
      * New instance of list of water reports.
      *
      * @return A new instance of fragment ListWaterReportsFragment.
@@ -69,6 +62,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
      * water report.
      * @param v New button
      */
+    @SuppressWarnings("UnusedParameters")
     private void onClickNewButton(View v) {
         ((MainDrawerActivity) getActivity()).switchFragment(NewWaterReportFragment.newInstance());
     }

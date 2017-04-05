@@ -19,13 +19,6 @@ import edu.gatech.cs2340.team1waterreporting.model.Model;
 public class ListWaterReportsFragment extends Fragment {
 
     /**
-     * Creates an empty ListWaterReportsFragment.
-     */
-    public ListWaterReportsFragment() {
-
-    }
-
-    /**
      * New instance of list of water reports.
      *
      * @return A new instance of fragment ListWaterReportsFragment.
@@ -61,6 +54,7 @@ public class ListWaterReportsFragment extends Fragment {
      * water report.
      * @param v New button
      */
+    @SuppressWarnings("UnusedParameters")
     private void onClickNewButton(View v) {
         ((MainDrawerActivity) getActivity()).switchFragment(NewWaterReportFragment.newInstance());
     }

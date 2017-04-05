@@ -13,6 +13,7 @@ import java.util.List;
  * A DAO backed by firebase.
  */
 
+@SuppressWarnings("WeakerAccess")
 public class FirebaseDAO extends InMemoryDAO implements ValueEventListener {
     FirebaseDatabase database;
     DatabaseReference root;

@@ -12,7 +12,7 @@ import edu.gatech.cs2340.team1waterreporting.model.Model;
  */
 
 @SuppressWarnings("UtilityClass")
-public class Logger {
+class Logger {
     /**
      * Store a login attempt log event
      * @param outcome "Unknown ID", "Bad Password", "Success"
@@ -39,7 +39,7 @@ public class Logger {
      * @param logEventType Type for log event
      * @param metadata HashMap for metadata
      */
-    public static void log(LogEventType logEventType, HashMap<String, String> metadata) {
+    private static void log(LogEventType logEventType, HashMap<String, String> metadata) {
         LogEvent logEvent =
             new LogEvent(Model.getInstance().getCurrentUser(), logEventType, metadata);
         Model.getInstance().addLogEvent(logEvent);

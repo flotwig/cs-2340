@@ -151,6 +151,7 @@ public class MainDrawerActivity extends AppCompatActivity
      * onClick handler for logout. Sets current user to null and exits this activity.
      * @param v Logout button
      */
+    @SuppressWarnings("UnusedParameters")
     private void onClickLogoutButton(View v) {
         Model.getInstance().setCurrentUser(null);
         finish();
