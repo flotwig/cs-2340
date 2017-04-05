@@ -96,7 +96,10 @@ public class EditProfileFragment extends Fragment {
         /*
          * Set up the adapter to display the User Roles in the spinner
          */
-        ArrayAdapter<UserRole> standings = new ArrayAdapter(super.getContext(),android.R.layout.simple_spinner_item, UserRole.values());
+        ArrayAdapter<UserRole> standings =
+            new ArrayAdapter(super.getContext(),android.R.layout.simple_spinner_item,
+            UserRole.values());
+
         standings.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mRole.setAdapter(standings);
 
@@ -106,7 +109,8 @@ public class EditProfileFragment extends Fragment {
          */
         Resources res = getResources();
         String[] titles = res.getStringArray(R.array.titles);
-        ArrayAdapter<UserRole> standings2 = new ArrayAdapter(super.getContext(),android.R.layout.simple_spinner_item, titles);
+        ArrayAdapter<UserRole> standings2 =
+            new ArrayAdapter(super.getContext(),android.R.layout.simple_spinner_item, titles);
         standings2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mTitle.setAdapter(standings2);
         for (int i = 0; i < titles.length; i++) {

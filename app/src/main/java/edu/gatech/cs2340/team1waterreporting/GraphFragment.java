@@ -65,7 +65,8 @@ public class GraphFragment extends Fragment {
 
         mLatitude = (EditText) view.findViewById(R.id.graph_latitude);
         mLongitude = (EditText) view.findViewById(R.id.graph_longitude);
-        EditText mSearchRadiusMeters = (EditText) view.findViewById(R.id.graph_search_radius_meters);
+        EditText mSearchRadiusMeters =
+            (EditText) view.findViewById(R.id.graph_search_radius_meters);
         EditText mYear = (EditText) view.findViewById(R.id.graph_year);
         mGraph = (GraphView) view.findViewById(R.id.graphView);
         mGraph.setVisibility(view.INVISIBLE);
@@ -81,7 +82,8 @@ public class GraphFragment extends Fragment {
             months[i] = new LinkedList<>();
         }
         for (WaterPurityReport waterPurityReport : targetReports) {
-            months[waterPurityReport.getDate().getMonth()].add((int) ((doVirusPpm) ? waterPurityReport.getVirusPpm() : waterPurityReport.getContaminantPpm()));
+            months[waterPurityReport.getDate().getMonth()].add((int) ((doVirusPpm)
+                ? waterPurityReport.getVirusPpm() : waterPurityReport.getContaminantPpm()));
         }
         int cMonth = 1;
         for (LinkedList<Integer> month : months) {

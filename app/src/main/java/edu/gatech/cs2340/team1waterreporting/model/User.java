@@ -53,7 +53,8 @@ public class User implements Serializable {
             throw new UserInputException("ID cannot be empty.");
         }
         if (!id.matches("[A-z0-9\\-_\\.]+")) {
-            throw new UserInputException("ID must consist of alphanumeric characters, -, _, and . only.");
+            throw new
+                UserInputException("ID must consist of alphanumeric characters, -, _, and . only.");
         }
     }
 
@@ -139,7 +140,8 @@ public class User implements Serializable {
             throw new UserInputException("Email Address cannot be empty.");
         }
         if (!emailAddress.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$")) {
-            throw new UserInputException("Invalid email address. Email must be of form example@domain.com");
+            throw new UserInputException("Invalid email address. " +
+                "Email must be of form example@domain.com");
         }
     }
 

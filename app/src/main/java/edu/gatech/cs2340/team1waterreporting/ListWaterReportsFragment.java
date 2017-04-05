@@ -50,7 +50,8 @@ public class ListWaterReportsFragment extends Fragment {
         });
 
         ListView mList = (ListView) v.findViewById(R.id.list);
-        mList.setAdapter(new WaterSourceReportArrayAdapter(getContext(), (ArrayList) Model.getInstance().getWaterSourceReports()));
+        mList.setAdapter(new WaterSourceReportArrayAdapter(getContext(),
+            (ArrayList) Model.getInstance().getWaterSourceReports()));
 
         return v;
     }

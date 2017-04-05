@@ -40,7 +40,8 @@ public class Logger {
      * @param metadata HashMap for metadata
      */
     public static void log(LogEventType logEventType, HashMap<String, String> metadata) {
-        LogEvent logEvent = new LogEvent(Model.getInstance().getCurrentUser(), logEventType, metadata);
+        LogEvent logEvent =
+            new LogEvent(Model.getInstance().getCurrentUser(), logEventType, metadata);
         Model.getInstance().addLogEvent(logEvent);
     }
 }

@@ -15,7 +15,8 @@ public class InMemoryDAO implements DAO {
     protected List<User> users;
     protected User currentUser;
 
-    private static final double METERS_IN_DEGREE = 111000.0; // rough approximation of meters per lat-long
+    // rough approximation of meters per lat-long
+    private static final double METERS_IN_DEGREE = 111000.0;
 
     @Override
     public User getCurrentUser() {
@@ -28,7 +29,9 @@ public class InMemoryDAO implements DAO {
     }
 
     @Override
-    public boolean attemptLogin(String username, String password) throws UserInputException, NoSuchElementException{
+    public boolean attemptLogin(String username, String password)
+        throws UserInputException, NoSuchElementException{
+
         User u = Model.getInstance().getUserById(username);
         u.checkPassword(password);
         Model.getInstance().setCurrentUser(u);
@@ -49,9 +52,16 @@ public class InMemoryDAO implements DAO {
 
     private void populateDummyData() {
         users.add(new User("Test User", "user", "pass", UserRole.ADMIN));
-        waterSourceReports.add(new WaterSourceReport(1, users.get(0), new Location(33.774358, -84.396463), WaterType.BOTTLED, WaterCondition.WASTE));
-        waterPurityReports.add(new WaterPurityReport(1, users.get(0), new Location(34.774358, -85.396463), WaterCondition.TREATABLE_MUDDY, 1234.1234, 5678.5678));
-        waterPurityReports.add(new WaterPurityReport(2, users.get(0), new Location(34.774358, -85.396463), WaterCondition.TREATABLE_MUDDY, 1234.1234, 5678.5678));
+        waterSourceReports.add(new WaterSourceReport(1, users.get(0),
+            new Location(33.774358, -84.396463), WaterType.BOTTLED, WaterCondition.WASTE));
+
+        waterPurityReports.add(new WaterPurityReport(1, users.get(0),
+            new Location(34.774358, -85.396463),
+            WaterCondition.TREATABLE_MUDDY, 1234.1234, 5678.5678));
+
+        waterPurityReports.add(new WaterPurityReport(2, users.get(0),
+            new Location(34.774358, -85.396463),
+            WaterCondition.TREATABLE_MUDDY, 1234.1234, 5678.5678));
     }
 
     @Override
@@ -83,12 +93,17 @@ public class InMemoryDAO implements DAO {
     }
 
     @Override
-    public List<WaterPurityReport> getWaterPurityReportsByLocationYear(Location location, double radiusMeters, int year) {
+    public List<WaterPurityReport>
+        getWaterPurityReportsByLocationYear(Location location, double radiusMeters, int year) {
+
         List<WaterPurityReport> result = new ArrayList();
         for(WaterPurityReport waterPurityReport : waterPurityReports) {
-            if (waterPurityReport.getDate().getYear() == year &&
-                    Math.abs(location.getLatitude() - waterPurityReport.getLocation().getLatitude()) <= radiusMeters / METERS_IN_DEGREE &&
-                    Math.abs(location.getLongitude() - waterPurityReport.getLocation().getLongitude()) <= radiusMeters / METERS_IN_DEGREE) {
+            if (waterPurityReport.getDate().getYear() == year && Math.abs(location.getLatitude() -
+                waterPurityReport.getLocation().getLatitude()) <= radiusMeters / METERS_IN_DEGREE
+                && Math.abs(location.getLongitude() -
+                waterPurityReport.getLocation().getLongitude())
+                <= radiusMeters / METERS_IN_DEGREE) {
+
                 result.add(waterPurityReport);
             }
         }

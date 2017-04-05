@@ -22,7 +22,9 @@ class WaterQualityReportArrayAdapter extends ArrayAdapter<WaterPurityReport> {
      * @param context context to operate in
      * @param waterPurityReports WaterPurityReport objects to show
      */
-    public WaterQualityReportArrayAdapter(Context context, List<WaterPurityReport> waterPurityReports) {
+    public WaterQualityReportArrayAdapter
+        (Context context, List<WaterPurityReport> waterPurityReports) {
+
         super(context, 0, waterPurityReports);
     }
 
@@ -31,7 +33,8 @@ class WaterQualityReportArrayAdapter extends ArrayAdapter<WaterPurityReport> {
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         WaterPurityReport waterPurityReport = getItem(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_water_source_report, parent, false);
+            convertView = LayoutInflater.from(getContext()).
+                inflate(R.layout.item_water_source_report, parent, false);
         }
         if (waterPurityReport == null) {
             return convertView;

@@ -50,7 +50,8 @@ public class ListWaterPurityReportsFragment extends Fragment {
         });
 
         ListView mList = (ListView) v.findViewById(R.id.list);
-        mList.setAdapter(new WaterQualityReportArrayAdapter(getContext(), (ArrayList) Model.getInstance().getWaterPurityReports()));
+        mList.setAdapter(new WaterQualityReportArrayAdapter(getContext(),
+            (ArrayList) Model.getInstance().getWaterPurityReports()));
 
         return v;
     }
@@ -61,6 +62,7 @@ public class ListWaterPurityReportsFragment extends Fragment {
      * @param v New button
      */
     private void onClickNewButton(View v) {
-        ((MainDrawerActivity) getActivity()).switchFragment(NewWaterQualityReportFragment.newInstance());
+        ((MainDrawerActivity)
+            getActivity()).switchFragment(NewWaterQualityReportFragment.newInstance());
     }
 }

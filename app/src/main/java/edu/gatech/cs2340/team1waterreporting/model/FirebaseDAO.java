@@ -51,10 +51,12 @@ public class FirebaseDAO extends InMemoryDAO implements ValueEventListener {
     public void onDataChange(DataSnapshot dataSnapshot) {
         switch (dataSnapshot.getRef().getKey()) {
             case "waterPurityReports":
-                waterPurityReports = iterableToList(WaterPurityReport.class, dataSnapshot.getChildren());
+                waterPurityReports =
+                    iterableToList(WaterPurityReport.class, dataSnapshot.getChildren());
                 break;
             case "waterSourceReports":
-                waterSourceReports = iterableToList(WaterSourceReport.class, dataSnapshot.getChildren());
+                waterSourceReports =
+                    iterableToList(WaterSourceReport.class, dataSnapshot.getChildren());
                 break;
             case "users":
                 users = iterableToList(User.class, dataSnapshot.getChildren());
