@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import edu.gatech.cs2340.team1waterreporting.model.Location;
 import edu.gatech.cs2340.team1waterreporting.model.User;
 import edu.gatech.cs2340.team1waterreporting.model.UserInputException;
 import edu.gatech.cs2340.team1waterreporting.model.UserRole;
