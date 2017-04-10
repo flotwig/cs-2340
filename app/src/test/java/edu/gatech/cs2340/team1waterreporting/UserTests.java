@@ -81,7 +81,7 @@ public class UserTests {
         }
 
         try {
-            testUser.validatePassword("emailAddress");
+            testUser.validateEmailAddress("emailAddress");
             fail("validates incorrect email format");
         } catch (UserInputException e) {
             assertEquals(e.getMessage(), "Invalid email address. " +
