@@ -1,12 +1,9 @@
 Team 1 Water Reporting
 =====
 
-[![Build Status](https://travis-ci.org/flotwig/cs-2340.svg?branch=master)]
-(https://travis-ci.org/flotwig/cs-2340)
-
 This is our Android water reporting application for CS 2340 Objects and Design at Georgia Tech.
 
-###Project Description
+### Project Description
 >We will create an application that supports finding clean drinking water and reporting on testing
 >results. In many parts of the world, access to clean water is a severe problem.
 >Many times, water is available, but people do not know where to get it. Other times,
