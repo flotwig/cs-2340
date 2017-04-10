@@ -29,6 +29,12 @@
     <string name="prompt_edit_profile_email_address">Email Address</string>
     <string name="prompt_edit_profile_home_address">Home Address</string>
 
+    <!-- Strings related to graph -->
+    <string name="graph_year">Year</string>
+    <string name="graph_search_radius">Search Radius (meters)</string>
+    <string name="graph_virus_ppm">Graph Virus PPM</string>
+    <string name="graph_contaminant_ppm">Graph Contaminant PPM</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_item_edit_profile">Edit Profile</string>
