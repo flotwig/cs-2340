@@ -9,7 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Locale;
 
+import edu.gatech.cs2340.team1waterreporting.model.Location;
 import edu.gatech.cs2340.team1waterreporting.model.WaterPurityReport;
 
 /**
@@ -41,8 +43,9 @@ class WaterQualityReportArrayAdapter extends ArrayAdapter<WaterPurityReport> {
         TextView mNumber = (TextView) convertView1.findViewById(R.id.number_text);
         TextView mRow = (TextView) convertView1.findViewById(R.id.row_text);
 
-        mNumber.setText(Integer.toString(waterPurityReport.getNumber()));
+        mNumber.setText(String.format(Locale.getDefault(), "%d", waterPurityReport.getNumber()));
         mRow.setText(String.format(
+                Locale.getDefault(),
                 "%s (%f virus PPM, %f contaminant PPM)\nby %s on %s\nLat: %f Lng: %f",
                 waterPurityReport.getWaterCondition().toString(),
                 waterPurityReport.getVirusPpm(),

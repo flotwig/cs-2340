@@ -60,12 +60,14 @@
             android:id="@+id/graph_enter_virus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
             android:text="@string/graph_virus_ppm" />
 
         <Button
             android:id="@+id/graph_enter_contaminant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="?android:attr/buttonBarButtonStyle"
             android:text="@string/graph_contaminant_ppm" />
 
     </LinearLayout>

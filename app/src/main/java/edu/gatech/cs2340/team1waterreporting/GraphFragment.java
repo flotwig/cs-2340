@@ -13,6 +13,7 @@ import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.Date;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -89,7 +90,7 @@ public class GraphFragment extends Fragment {
                 ? waterPurityReport.getVirusPpm() : waterPurityReport.getContaminantPpm()));
         }
         int cMonth = 1;
-        for (LinkedList<Integer> month : months) {
+        for (Deque<Integer> month : months) {
             int average = 0;
             for (int ppm : month) {
                 average += ppm;

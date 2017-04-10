@@ -1,6 +1,7 @@
 package edu.gatech.cs2340.team1waterreporting.model;
 
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Model to contain a report on a water source.
@@ -87,7 +88,9 @@ public class WaterSourceReport {
 
     @Override
     public String toString() {
-        return String.format("#%d: %s, %s at %f, %f. \nReported by %s at %s.",
+        return String.format(
+                Locale.getDefault(),
+                "#%d: %s, %s at %f, %f. \nReported by %s at %s.",
                 number,
                 waterCondition.toString(),
                 waterType.toString(),

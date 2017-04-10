@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 //import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import edu.gatech.cs2340.team1waterreporting.model.WaterSourceReport;
 
@@ -42,8 +43,9 @@ class WaterSourceReportArrayAdapter extends ArrayAdapter<WaterSourceReport> {
         TextView mNumber = (TextView) convertView1.findViewById(R.id.number_text);
         TextView mRow = (TextView) convertView1.findViewById(R.id.row_text);
 
-        mNumber.setText(Integer.toString(waterSourceReport.getNumber()));
+        mNumber.setText(String.format(Locale.getDefault(), "%d", waterSourceReport.getNumber()));
         mRow.setText(String.format(
+                Locale.getDefault(),
                 "%s, %s at %.3f, %.3f\n%s by %s",
                 waterSourceReport.getWaterType().toString(),
                 waterSourceReport.getWaterCondition().toString(),

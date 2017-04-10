@@ -8,7 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/title_spinner"
-        android:layout_weight="1"
         android:spinnerMode="dropdown" />
 
     <android.support.design.widget.TextInputLayout
@@ -51,8 +50,7 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/account_type_spinner"
-        android:layout_weight="1" />
+        android:id="@+id/account_type_spinner" />
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
