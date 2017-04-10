@@ -5,6 +5,7 @@ import java.io.Serializable;
 /**
  * Model for a user object.
  */
+@SuppressWarnings("ALL")
 public class User implements Serializable {
     private String name;
     private String id;
@@ -149,7 +150,7 @@ public class User implements Serializable {
      * Get user's email address
      * @return email address
      */
-    public String getEmailAddress() {return emailAddress;}
+    public CharSequence getEmailAddress() {return emailAddress;}
 
     /**
      * Set user's email address
@@ -172,7 +173,7 @@ public class User implements Serializable {
      * Get home address
      * @return home address
      */
-    public String getHomeAddress() {return homeAddress;}
+    public CharSequence getHomeAddress() {return homeAddress;}
 
     /**
      * Set user's new home address.

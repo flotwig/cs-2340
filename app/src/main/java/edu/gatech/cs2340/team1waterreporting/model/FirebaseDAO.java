@@ -13,10 +13,10 @@ import java.util.List;
  * A DAO backed by firebase.
  */
 
-@SuppressWarnings({"WeakerAccess", "unchecked", "ChainedMethodCall"})
+@SuppressWarnings("ALL")
 public class FirebaseDAO extends InMemoryDAO implements ValueEventListener {
-    FirebaseDatabase database;
-    DatabaseReference root;
+    final FirebaseDatabase database;
+    final DatabaseReference root;
 
     @SuppressWarnings("ThisEscapedInObjectConstruction")
     FirebaseDAO() {

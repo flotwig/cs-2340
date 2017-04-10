@@ -11,7 +11,6 @@ import android.widget.TextView;
 import java.util.List;
 import java.util.Locale;
 
-import edu.gatech.cs2340.team1waterreporting.model.Location;
 import edu.gatech.cs2340.team1waterreporting.model.WaterPurityReport;
 
 /**
@@ -25,7 +24,8 @@ class WaterQualityReportArrayAdapter extends ArrayAdapter<WaterPurityReport> {
      * @param context context to operate in
      * @param waterPurityReports WaterPurityReport objects to show
      */
-    public WaterQualityReportArrayAdapter(Context context, List<WaterPurityReport> waterPurityReports) {
+    public WaterQualityReportArrayAdapter(Context context, List<WaterPurityReport>
+            waterPurityReports) {
         super(context, 0, waterPurityReports);
     }
 
@@ -35,7 +35,8 @@ class WaterQualityReportArrayAdapter extends ArrayAdapter<WaterPurityReport> {
         View convertView1 = convertView;
         WaterPurityReport waterPurityReport = getItem(position);
         if (convertView1 == null) {
-            convertView1 = LayoutInflater.from(getContext()).inflate(R.layout.item_water_source_report, parent, false);
+            convertView1 = LayoutInflater.from(getContext()).inflate(
+                    R.layout.item_water_source_report, parent, false);
         }
         if (waterPurityReport == null) {
             return convertView1;

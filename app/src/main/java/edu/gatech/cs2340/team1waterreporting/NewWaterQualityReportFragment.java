@@ -20,7 +20,7 @@ import edu.gatech.cs2340.team1waterreporting.model.WaterPurityReport;
 /**
  * A fragment which handles the editing of a user object.
  */
-@SuppressWarnings({"unchecked", "ChainedMethodCall"})
+@SuppressWarnings("ALL")
 public class NewWaterQualityReportFragment extends Fragment {
     private Spinner mWaterCondition;
     private EditText mLatitude;

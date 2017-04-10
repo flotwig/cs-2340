@@ -28,6 +28,7 @@ import edu.gatech.cs2340.team1waterreporting.model.WaterPurityReport;
 
 @SuppressWarnings({"unchecked", "ChainedMethodCall"})
 public class GraphFragment extends Fragment {
+    private static final int MONTHS_IN_YEAR = 12;
 
     private EditText mLatitude;
     private EditText mLongitude;
@@ -81,7 +82,7 @@ public class GraphFragment extends Fragment {
     private void populateGraphView(GraphView graph) {
         List<WaterPurityReport> targetReports = Model.getInstance().getWaterPurityReports();
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
-        LinkedList<Integer>[] months = new LinkedList[12];
+        LinkedList<Integer>[] months = new LinkedList[MONTHS_IN_YEAR];
         for (int i = 0; i < months.length; i++) {
             months[i] = new LinkedList<>();
         }
@@ -101,7 +102,7 @@ public class GraphFragment extends Fragment {
             }
             cMonth++;
         }
-        graph.getGridLabelRenderer().setNumHorizontalLabels(12);
+        graph.getGridLabelRenderer().setNumHorizontalLabels(MONTHS_IN_YEAR);
         graph.getGridLabelRenderer().setHorizontalAxisTitle(getString(R.string.month));
         graph.getGridLabelRenderer().setVerticalAxisTitle(getString(R.string.ppm));
         graph.removeAllSeries();

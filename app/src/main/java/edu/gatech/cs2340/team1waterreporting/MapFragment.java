@@ -24,7 +24,7 @@ import edu.gatech.cs2340.team1waterreporting.model.WaterSourceReport;
 /**
  * A fragment which handles the editing of a user object.
  */
-@SuppressWarnings("ChainedMethodCall")
+@SuppressWarnings("ALL")
 public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     /**

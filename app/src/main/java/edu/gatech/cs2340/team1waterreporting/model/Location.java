@@ -6,6 +6,7 @@ import com.google.android.gms.maps.model.LatLng;
  * Model for a location consisting of latitude and longitude
  */
 
+@SuppressWarnings("ALL")
 public class Location {
     private double longitude;
     private double latitude;

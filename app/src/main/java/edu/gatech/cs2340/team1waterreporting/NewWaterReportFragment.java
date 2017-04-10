@@ -22,7 +22,7 @@ import edu.gatech.cs2340.team1waterreporting.model.WaterType;
 /**
  * A fragment which handles the editing of a user object.
  */
-@SuppressWarnings({"unchecked", "ChainedMethodCall"})
+@SuppressWarnings("ALL")
 public class NewWaterReportFragment extends Fragment {
     private Spinner mWaterType;
     private Spinner mWaterCondition;

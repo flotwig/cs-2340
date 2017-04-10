@@ -25,7 +25,8 @@ class WaterSourceReportArrayAdapter extends ArrayAdapter<WaterSourceReport> {
      * @param context context to operate in
      * @param waterSourceReports WaterSourceReport objects to show
      */
-    public WaterSourceReportArrayAdapter(Context context, List<WaterSourceReport> waterSourceReports) {
+    public WaterSourceReportArrayAdapter(Context context, List<WaterSourceReport>
+            waterSourceReports) {
         super(context, 0, waterSourceReports);
     }
 
@@ -35,7 +36,8 @@ class WaterSourceReportArrayAdapter extends ArrayAdapter<WaterSourceReport> {
         View convertView1 = convertView;
         WaterSourceReport waterSourceReport = getItem(position);
         if (convertView1 == null) {
-            convertView1 = LayoutInflater.from(getContext()).inflate(R.layout.item_water_source_report, parent, false);
+            convertView1 = LayoutInflater.from(getContext()).inflate(
+                    R.layout.item_water_source_report, parent, false);
         }
         if (waterSourceReport == null) {
             return convertView1;

@@ -40,7 +40,8 @@ class Logger {
      */
     private static void log(HashMap<String, String> metadata) {
         LogEvent logEvent =
-            new LogEvent(Model.getInstance().getCurrentUser(), LogEventType.LOGIN_ATTEMPT, metadata);
+            new LogEvent(Model.getInstance().getCurrentUser(), LogEventType.LOGIN_ATTEMPT,
+                    metadata);
         Model.getInstance().addLogEvent(logEvent);
     }
 }

@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
  * An in-memory DAO for testing complete with dummy data.
  */
 
-@SuppressWarnings({"WeakerAccess", "unchecked"})
+@SuppressWarnings("ALL")
 public class InMemoryDAO implements DAO {
     protected List<WaterPurityReport> waterPurityReports;
     protected List<WaterSourceReport> waterSourceReports;

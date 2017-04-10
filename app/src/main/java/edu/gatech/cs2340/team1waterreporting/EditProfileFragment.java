@@ -21,7 +21,7 @@ import edu.gatech.cs2340.team1waterreporting.model.UserRole;
 /**
  * A fragment which handles the editing of a user object.
  */
-@SuppressWarnings({"unchecked", "ChainedMethodCall"})
+@SuppressWarnings("ALL")
 public class EditProfileFragment extends Fragment {
     private static final String ARG_USER = User.class.getName();
 
@@ -45,11 +45,7 @@ public class EditProfileFragment extends Fragment {
     public static EditProfileFragment newInstance() {
         EditProfileFragment fragment = new EditProfileFragment();
         Bundle args = new Bundle();
-        if (null != null) {
-            args.putSerializable(ARG_USER, null);
-        } else {
-            args.putSerializable(ARG_USER, Model.getInstance().getCurrentUser());
-        }
+        args.putSerializable(ARG_USER, Model.getInstance().getCurrentUser());
         fragment.setArguments(args);
         return fragment;
     }
